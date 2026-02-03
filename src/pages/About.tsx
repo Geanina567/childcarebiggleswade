@@ -1,7 +1,9 @@
-import { Heart, Shield, Award, Users, Check, Baby, Sparkles, BookOpen } from "lucide-react";
+import { Heart, Shield, Users, Check, Sparkles, BookOpen, Facebook } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { Button } from "@/components/ui/button";
+import emaPhoto from "@/assets/ema-photo.jpg";
 
 const About = () => {
   const values = [
@@ -44,7 +46,15 @@ const About = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 bg-gradient-to-b from-accent/50 to-background">
         <div className="container mx-auto text-center max-w-3xl">
-          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+          {/* Ema's Photo */}
+          <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-primary/20 shadow-glow">
+            <img 
+              src={emaPhoto} 
+              alt="Ema - Little People Childminder"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
             Meet Ema
           </span>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
@@ -87,12 +97,30 @@ const About = () => {
                   social and cognitive development at their own pace.
                 </p>
               </div>
+
+              {/* Facebook Button */}
+              <div className="mt-8">
+                <a
+                  href="https://www.facebook.com/share/1GGzMemeYy/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline" className="gap-2">
+                    <Facebook className="w-5 h-5" />
+                    Follow on Facebook
+                  </Button>
+                </a>
+              </div>
             </div>
             <div className="space-y-6">
               <div className="bg-gradient-to-br from-primary/10 to-secondary/20 rounded-3xl p-8">
                 <div className="text-center mb-6">
-                  <div className="w-24 h-24 bg-primary/20 rounded-full mx-auto flex items-center justify-center mb-4">
-                    <Baby className="w-12 h-12 text-primary" />
+                  <div className="w-24 h-24 rounded-full mx-auto overflow-hidden ring-2 ring-primary/20 mb-4">
+                    <img 
+                      src={emaPhoto} 
+                      alt="Ema"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="text-xl font-display font-bold text-foreground">Ema's Philosophy</h3>
                 </div>

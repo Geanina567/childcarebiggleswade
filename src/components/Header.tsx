@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoIcon from "@/assets/logo-icon.png";
 
@@ -44,18 +44,20 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
+          </nav>
+
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-3">
             <a
               href="https://www.facebook.com/share/1GGzMemeYy/?mibextid=wwXIfr"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
-              Facebook
+              <Button variant="outline" size="sm" className="gap-2">
+                <Facebook className="w-4 h-4" />
+                Facebook
+              </Button>
             </a>
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
             <a href="https://wa.me/447733876089" target="_blank" rel="noopener noreferrer">
               <Button variant="default" size="sm" className="gap-2">
                 <Phone className="w-4 h-4" />
@@ -90,20 +92,24 @@ const Header = () => {
                   {link.label}
                 </Link>
               ))}
-              <a
-                href="https://www.facebook.com/share/1GGzMemeYy/?mibextid=wwXIfr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-muted-foreground"
-              >
-                Facebook
-              </a>
-              <a href="https://wa.me/447733876089" target="_blank" rel="noopener noreferrer">
-                <Button variant="default" size="sm" className="gap-2 w-full">
-                  <Phone className="w-4 h-4" />
-                  Contact Us
-                </Button>
-              </a>
+              <div className="flex flex-col gap-2 pt-2">
+                <a
+                  href="https://www.facebook.com/share/1GGzMemeYy/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline" size="sm" className="gap-2 w-full">
+                    <Facebook className="w-4 h-4" />
+                    Facebook
+                  </Button>
+                </a>
+                <a href="https://wa.me/447733876089" target="_blank" rel="noopener noreferrer">
+                  <Button variant="default" size="sm" className="gap-2 w-full">
+                    <Phone className="w-4 h-4" />
+                    Contact Us
+                  </Button>
+                </a>
+              </div>
             </nav>
           </div>
         )}
