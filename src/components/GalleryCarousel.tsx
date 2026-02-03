@@ -1,3 +1,4 @@
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -6,12 +7,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
 import gallery7 from "@/assets/gallery-7.jpg";
 import gallery8 from "@/assets/gallery-8.jpg";
 import gallery9 from "@/assets/gallery-9.jpg";
@@ -32,14 +27,18 @@ import gallery23 from "@/assets/gallery-23.jpg";
 import gallery24 from "@/assets/gallery-24.jpg";
 import gallery25 from "@/assets/gallery-25.jpg";
 import gallery26 from "@/assets/gallery-26.jpg";
+import gallery27 from "@/assets/gallery-27.jpg";
+import gallery28 from "@/assets/gallery-28.jpg";
+import gallery29 from "@/assets/gallery-29.jpg";
+import gallery30 from "@/assets/gallery-30.jpg";
+import gallery31 from "@/assets/gallery-31.jpg";
+import gallery32 from "@/assets/gallery-32.jpg";
+import gallery33 from "@/assets/gallery-33.jpg";
+import gallery34 from "@/assets/gallery-34.jpg";
+import gallery35 from "@/assets/gallery-35.jpg";
+import gallery36 from "@/assets/gallery-36.jpg";
 
 const galleryImages = [
-  { src: gallery1, alt: "Children playing together" },
-  { src: gallery2, alt: "Arts and crafts activities" },
-  { src: gallery3, alt: "Peaceful nap time" },
-  { src: gallery4, alt: "Story time with caregiver" },
-  { src: gallery5, alt: "Outdoor play area" },
-  { src: gallery6, alt: "Healthy snack time" },
   { src: gallery7, alt: "Sensory lights and calming toys" },
   { src: gallery8, alt: "Homemade rice pudding" },
   { src: gallery9, alt: "Nutritious soup with dumplings" },
@@ -60,6 +59,16 @@ const galleryImages = [
   { src: gallery24, alt: "Behaviour champion rewards" },
   { src: gallery25, alt: "Positive behaviour celebration" },
   { src: gallery26, alt: "Shape matching learning" },
+  { src: gallery27, alt: "Cosy reading corner with dolls" },
+  { src: gallery28, alt: "Handprint craft keepsake" },
+  { src: gallery29, alt: "Mother's Day craft card" },
+  { src: gallery30, alt: "Creative blow painting art" },
+  { src: gallery31, alt: "October focus books newsletter" },
+  { src: gallery32, alt: "Christmas Elf Report" },
+  { src: gallery33, alt: "January learning plans" },
+  { src: gallery34, alt: "September focus books" },
+  { src: gallery35, alt: "Farm sensory play tray" },
+  { src: gallery36, alt: "Flower water sensory play" },
 ];
 
 const GalleryCarousel = () => {
@@ -69,6 +78,13 @@ const GalleryCarousel = () => {
         align: "start",
         loop: true,
       }}
+      plugins={[
+        Autoplay({
+          delay: 3000,
+          stopOnInteraction: true,
+          stopOnMouseEnter: true,
+        }),
+      ]}
       className="w-full"
     >
       <CarouselContent className="-ml-2 md:-ml-4">
