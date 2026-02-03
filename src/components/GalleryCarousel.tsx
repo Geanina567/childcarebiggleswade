@@ -52,6 +52,7 @@ type GalleryItem = {
 };
 
 const galleryItems: GalleryItem[] = [
+  { src: "/videos/gallery-video-1.mov", alt: "Fun activities video", type: "video" },
   { src: gallery7, alt: "Sensory lights and calming toys", type: "image" },
   { src: gallery8, alt: "Homemade rice pudding", type: "image" },
   { src: gallery9, alt: "Nutritious soup with dumplings", type: "image" },
@@ -89,7 +90,6 @@ const galleryItems: GalleryItem[] = [
   { src: gallery42, alt: "Magnetic animal board", type: "image" },
   { src: gallery43, alt: "Animal magnets learning activity", type: "image" },
   { src: gallery44, alt: "Nature treasure collection", type: "image" },
-  { src: "/videos/gallery-video-1.mov", alt: "Fun activities video", type: "video" },
 ];
 
 const GalleryCarousel = () => {
