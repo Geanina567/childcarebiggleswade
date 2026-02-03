@@ -45,44 +45,51 @@ import gallery42 from "@/assets/gallery-42.jpg";
 import gallery43 from "@/assets/gallery-43.jpg";
 import gallery44 from "@/assets/gallery-44.jpg";
 
-const galleryImages = [
-  { src: gallery7, alt: "Sensory lights and calming toys" },
-  { src: gallery8, alt: "Homemade rice pudding" },
-  { src: gallery9, alt: "Nutritious soup with dumplings" },
-  { src: gallery10, alt: "Nature exploration tray" },
-  { src: gallery11, alt: "Natural materials discovery" },
-  { src: gallery12, alt: "Outdoor sensory play" },
-  { src: gallery13, alt: "Forest treasures collection" },
-  { src: gallery14, alt: "Nature walk findings" },
-  { src: gallery15, alt: "Magnetic building tiles play" },
-  { src: gallery16, alt: "Creative construction with tiles" },
-  { src: gallery17, alt: "Magnetic tiles building set" },
-  { src: gallery18, alt: "Outdoor craft activities" },
-  { src: gallery19, alt: "Story time craft session" },
-  { src: gallery20, alt: "Creative play tray setup" },
-  { src: gallery21, alt: "Outdoor learning space" },
-  { src: gallery22, alt: "Story book reading activity" },
-  { src: gallery23, alt: "Interactive story crafts" },
-  { src: gallery24, alt: "Behaviour champion rewards" },
-  { src: gallery25, alt: "Positive behaviour celebration" },
-  { src: gallery26, alt: "Shape matching learning" },
-  { src: gallery27, alt: "Cosy reading corner with dolls" },
-  { src: gallery28, alt: "Handprint craft keepsake" },
-  { src: gallery29, alt: "Mother's Day craft card" },
-  { src: gallery30, alt: "Creative blow painting art" },
-  { src: gallery31, alt: "October focus books newsletter" },
-  { src: gallery32, alt: "Christmas Elf Report" },
-  { src: gallery33, alt: "January learning plans" },
-  { src: gallery34, alt: "September focus books" },
-  { src: gallery36, alt: "Flower water sensory play" },
-  { src: gallery37, alt: "Colourful foam building blocks" },
-  { src: gallery38, alt: "Creative block construction" },
-  { src: gallery39, alt: "Farm animals sensory play" },
-  { src: gallery40, alt: "Farm tray with wooden animals" },
-  { src: gallery41, alt: "Farm sensory play overview" },
-  { src: gallery42, alt: "Magnetic animal board" },
-  { src: gallery43, alt: "Animal magnets learning activity" },
-  { src: gallery44, alt: "Nature treasure collection" },
+type GalleryItem = {
+  src: string;
+  alt: string;
+  type: "image" | "video";
+};
+
+const galleryItems: GalleryItem[] = [
+  { src: gallery7, alt: "Sensory lights and calming toys", type: "image" },
+  { src: gallery8, alt: "Homemade rice pudding", type: "image" },
+  { src: gallery9, alt: "Nutritious soup with dumplings", type: "image" },
+  { src: gallery10, alt: "Nature exploration tray", type: "image" },
+  { src: gallery11, alt: "Natural materials discovery", type: "image" },
+  { src: gallery12, alt: "Outdoor sensory play", type: "image" },
+  { src: gallery13, alt: "Forest treasures collection", type: "image" },
+  { src: gallery14, alt: "Nature walk findings", type: "image" },
+  { src: gallery15, alt: "Magnetic building tiles play", type: "image" },
+  { src: gallery16, alt: "Creative construction with tiles", type: "image" },
+  { src: gallery17, alt: "Magnetic tiles building set", type: "image" },
+  { src: gallery18, alt: "Outdoor craft activities", type: "image" },
+  { src: gallery19, alt: "Story time craft session", type: "image" },
+  { src: gallery20, alt: "Creative play tray setup", type: "image" },
+  { src: gallery21, alt: "Outdoor learning space", type: "image" },
+  { src: gallery22, alt: "Story book reading activity", type: "image" },
+  { src: gallery23, alt: "Interactive story crafts", type: "image" },
+  { src: gallery24, alt: "Behaviour champion rewards", type: "image" },
+  { src: gallery25, alt: "Positive behaviour celebration", type: "image" },
+  { src: gallery26, alt: "Shape matching learning", type: "image" },
+  { src: gallery27, alt: "Cosy reading corner with dolls", type: "image" },
+  { src: gallery28, alt: "Handprint craft keepsake", type: "image" },
+  { src: gallery29, alt: "Mother's Day craft card", type: "image" },
+  { src: gallery30, alt: "Creative blow painting art", type: "image" },
+  { src: gallery31, alt: "October focus books newsletter", type: "image" },
+  { src: gallery32, alt: "Christmas Elf Report", type: "image" },
+  { src: gallery33, alt: "January learning plans", type: "image" },
+  { src: gallery34, alt: "September focus books", type: "image" },
+  { src: gallery36, alt: "Flower water sensory play", type: "image" },
+  { src: gallery37, alt: "Colourful foam building blocks", type: "image" },
+  { src: gallery38, alt: "Creative block construction", type: "image" },
+  { src: gallery39, alt: "Farm animals sensory play", type: "image" },
+  { src: gallery40, alt: "Farm tray with wooden animals", type: "image" },
+  { src: gallery41, alt: "Farm sensory play overview", type: "image" },
+  { src: gallery42, alt: "Magnetic animal board", type: "image" },
+  { src: gallery43, alt: "Animal magnets learning activity", type: "image" },
+  { src: gallery44, alt: "Nature treasure collection", type: "image" },
+  { src: "/videos/gallery-video-1.mov", alt: "Fun activities video", type: "video" },
 ];
 
 const GalleryCarousel = () => {
@@ -102,17 +109,28 @@ const GalleryCarousel = () => {
       className="w-full"
     >
       <CarouselContent className="-ml-2 md:-ml-4">
-        {galleryImages.map((image, index) => (
+        {galleryItems.map((item, index) => (
           <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
             <div className="group relative rounded-2xl overflow-hidden aspect-square shadow-soft hover:shadow-lg transition-all duration-300">
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+              {item.type === "video" ? (
+                <video
+                  src={item.src}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                />
+              ) : (
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-4 left-4 right-4 text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="font-medium text-sm">{image.alt}</p>
+                <p className="font-medium text-sm">{item.alt}</p>
               </div>
             </div>
           </CarouselItem>
