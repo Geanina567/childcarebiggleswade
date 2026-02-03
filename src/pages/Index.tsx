@@ -1,12 +1,294 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Star, MapPin, Phone, Clock, Shield, Heart, Baby, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+
+import heroImage from "@/assets/hero-daycare.jpg";
+import gallery1 from "@/assets/gallery-1.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
+import gallery4 from "@/assets/gallery-4.jpg";
+import gallery5 from "@/assets/gallery-5.jpg";
+import gallery6 from "@/assets/gallery-6.jpg";
 
 const Index = () => {
+  const features = [
+    {
+      icon: Baby,
+      title: "Ages 0-3",
+      description: "Specialized care for babies and toddlers"
+    },
+    {
+      icon: Shield,
+      title: "Fully Accredited",
+      description: "Ofsted registered and regulated facility"
+    },
+    {
+      icon: Heart,
+      title: "Nurturing Care",
+      description: "Warm, loving environment for your child"
+    },
+    {
+      icon: Sparkles,
+      title: "Play & Learn",
+      description: "EYFS curriculum through creative play"
+    }
+  ];
+
+  const galleryImages = [
+    { src: gallery1, alt: "Children playing together" },
+    { src: gallery2, alt: "Arts and crafts activities" },
+    { src: gallery3, alt: "Peaceful nap time" },
+    { src: gallery4, alt: "Story time with caregiver" },
+    { src: gallery5, alt: "Outdoor play area" },
+    { src: gallery6, alt: "Healthy snack time" },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <WhatsAppButton />
+
+      {/* Hero Section */}
+      <section className="relative pt-20 md:pt-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/50 via-secondary/30 to-background" />
+        
+        <div className="relative container mx-auto px-4 py-16 md:py-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
+                <Star className="w-4 h-4 text-primary fill-primary" />
+                <span className="text-sm font-medium text-primary">Fully Accredited & Regulated</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight">
+                Where Little Ones <span className="text-primary">Shine</span> Bright
+              </h1>
+              
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0">
+                A nurturing home-from-home daycare for children aged 0-3 in the heart of 
+                Biggleswade. Where every child is cherished, cared for, and encouraged to flourish.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a href="https://wa.me/447733876089" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="gap-2 w-full sm:w-auto">
+                    <Phone className="w-4 h-4" />
+                    Contact Us
+                  </Button>
+                </a>
+                <Link to="/about">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                    Learn More
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="flex items-center gap-6 justify-center lg:justify-start pt-4">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span className="text-sm text-muted-foreground">Biggleswade, SG18 8YF</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-primary" />
+                  <span className="text-sm text-muted-foreground">Mon-Fri</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-glow">
+                <img 
+                  src={heroImage}
+                  alt="Little Stars Daycare - A warm and welcoming nursery environment"
+                  className="w-full h-[400px] md:h-[500px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
+              </div>
+              
+              {/* Floating badge */}
+              <div className="absolute -bottom-4 -left-4 bg-card rounded-2xl p-4 shadow-soft animate-float">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <Baby className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-foreground">Ages 0-3</div>
+                    <div className="text-sm text-muted-foreground">Babies & Toddlers</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 px-4 bg-muted/30">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="bg-card rounded-2xl p-6 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <feature.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium mb-4">
+              Our Gallery
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              A Day in the Life
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Take a peek into our nurturing environment where children learn, play, and grow together every day.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {galleryImages.map((image, index) => (
+              <div 
+                key={index}
+                className="group relative rounded-2xl overflow-hidden aspect-square shadow-soft hover:shadow-lg transition-all duration-300"
+              >
+                <img 
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-4 left-4 right-4 text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="font-medium text-sm">{image.alt}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Biggleswade Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-accent/50 to-secondary/30">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                Our Location
+              </span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
+                In the Heart of Biggleswade
+              </h2>
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  Nestled in the charming market town of Biggleswade, Bedfordshire, our daycare 
+                  centre is perfectly positioned for families in the local community. This historic 
+                  town offers the perfect blend of traditional character and modern amenities.
+                </p>
+                <p>
+                  Biggleswade is known for its friendly community spirit, beautiful parks, and 
+                  excellent transport links. With the River Ivel flowing through, there's plenty 
+                  of natural beauty for families to enjoy, from riverside walks to the 
+                  award-winning town centre.
+                </p>
+                <p>
+                  We're proud to be part of this wonderful community, providing exceptional 
+                  childcare that allows local families to balance work and family life with 
+                  complete peace of mind.
+                </p>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <div className="flex items-center gap-2 px-4 py-2 bg-card rounded-full shadow-soft">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium">SG18 8YF</span>
+                </div>
+                <a 
+                  href="https://wa.me/447733876089"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-card rounded-full shadow-soft hover:shadow-lg transition-shadow"
+                >
+                  <Phone className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium">07733 876089</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="bg-card rounded-3xl p-8 shadow-soft">
+                <h3 className="font-display font-bold text-xl text-foreground mb-6">Why Biggleswade?</h3>
+                <ul className="space-y-4">
+                  {[
+                    "Historic market town with friendly community",
+                    "Excellent schools and family amenities",
+                    "Beautiful parks and riverside walks",
+                    "Great transport links to Cambridge & London",
+                    "Safe, welcoming neighbourhood",
+                    "Active local events and activities"
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg className="w-3 h-3 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="text-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <div className="bg-primary rounded-3xl p-8 md:p-12 text-center text-primary-foreground">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+              Ready to Join Our Family?
+            </h2>
+            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
+              We'd love to show you around and discuss how we can support your child's 
+              early years journey. Get in touch today!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="https://wa.me/447733876089" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="secondary" className="gap-2 w-full sm:w-auto">
+                  <Phone className="w-4 h-4" />
+                  WhatsApp Us
+                </Button>
+              </a>
+              <a
+                href="https://www.facebook.com/share/1GGzMemeYy/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" variant="outline" className="gap-2 w-full sm:w-auto border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+                  Follow on Facebook
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
