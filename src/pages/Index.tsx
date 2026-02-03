@@ -5,24 +5,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import GalleryCarousel from "@/components/GalleryCarousel";
 
 import heroImage from "@/assets/hero-daycare.jpg";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
-import gallery7 from "@/assets/gallery-7.jpg";
-import gallery8 from "@/assets/gallery-8.jpg";
-import gallery9 from "@/assets/gallery-9.jpg";
-import gallery10 from "@/assets/gallery-10.jpg";
-import gallery11 from "@/assets/gallery-11.jpg";
-import gallery12 from "@/assets/gallery-12.jpg";
-import gallery13 from "@/assets/gallery-13.jpg";
-import gallery14 from "@/assets/gallery-14.jpg";
-import gallery15 from "@/assets/gallery-15.jpg";
-import gallery16 from "@/assets/gallery-16.jpg";
 
 const Index = () => {
   const features = [
@@ -46,25 +31,6 @@ const Index = () => {
       title: "Play & Learn",
       description: "EYFS aligned play-based learning"
     }
-  ];
-
-  const galleryImages = [
-    { src: gallery1, alt: "Children playing together" },
-    { src: gallery2, alt: "Arts and crafts activities" },
-    { src: gallery3, alt: "Peaceful nap time" },
-    { src: gallery4, alt: "Story time with caregiver" },
-    { src: gallery5, alt: "Outdoor play area" },
-    { src: gallery6, alt: "Healthy snack time" },
-    { src: gallery7, alt: "Sensory lights and calming toys" },
-    { src: gallery8, alt: "Homemade rice pudding" },
-    { src: gallery9, alt: "Nutritious soup with dumplings" },
-    { src: gallery10, alt: "Nature exploration tray" },
-    { src: gallery11, alt: "Natural materials discovery" },
-    { src: gallery12, alt: "Outdoor sensory play" },
-    { src: gallery13, alt: "Forest treasures collection" },
-    { src: gallery14, alt: "Nature walk findings" },
-    { src: gallery15, alt: "Magnetic building tiles play" },
-    { src: gallery16, alt: "Creative construction with tiles" },
   ];
 
   return (
@@ -226,23 +192,8 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {galleryImages.map((image, index) => (
-              <div 
-                key={index}
-                className="group relative rounded-2xl overflow-hidden aspect-square shadow-soft hover:shadow-lg transition-all duration-300"
-              >
-                <img 
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="font-medium text-sm">{image.alt}</p>
-                </div>
-              </div>
-            ))}
+          <div className="px-8 md:px-16">
+            <GalleryCarousel />
           </div>
         </div>
       </section>
