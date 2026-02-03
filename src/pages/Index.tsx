@@ -54,7 +54,9 @@ const Index = () => {
 
       {/* Hero Section with Video Background */}
       <section className="relative pt-20 md:pt-24 overflow-hidden min-h-[90vh] flex items-center">
-        <VideoBackground />
+        <div className="absolute inset-0 -z-10">
+          <VideoBackground />
+        </div>
         
         <div className="relative container mx-auto px-4 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

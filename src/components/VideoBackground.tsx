@@ -1,17 +1,20 @@
 const VideoBackground = () => {
   return (
-    <div className="absolute inset-0 overflow-hidden -z-10">
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Video layer - full opacity to test */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute w-full h-full object-cover opacity-40"
-        style={{ mixBlendMode: 'overlay' }}
+        preload="auto"
+        className="absolute w-full h-full object-cover opacity-50"
       >
         <source src="/videos/background-animation.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
       </video>
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/70 via-secondary/50 to-background/90" />
+      {/* Semi-transparent overlay to blend with site colors */}
+      <div className="absolute inset-0 bg-background/50" />
     </div>
   );
 };
