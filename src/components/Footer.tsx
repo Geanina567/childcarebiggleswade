@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Facebook } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Baby, Clock } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -10,14 +10,18 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-lg">L</span>
+                <Baby className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="font-display font-bold text-xl">Little Stars</span>
+              <span className="font-display font-bold text-xl">Little People</span>
             </div>
-            <p className="text-background/70 text-sm leading-relaxed">
+            <p className="text-background/70 text-sm leading-relaxed mb-4">
               Providing exceptional care and early education for children aged 0-3 
-              in the heart of Biggleswade.
+              in the heart of Biggleswade. Fully accredited and regulated.
             </p>
+            <div className="flex items-center gap-2 text-background/70">
+              <Clock className="w-4 h-4 text-primary" />
+              <span className="text-sm">Mon-Fri: 8:00 AM - 5:30 PM</span>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -28,7 +32,7 @@ const Footer = () => {
                 Home
               </Link>
               <Link to="/about" className="text-background/70 hover:text-background text-sm transition-colors">
-                About Us
+                About Ema
               </Link>
               <a
                 href="https://www.facebook.com/share/1GGzMemeYy/?mibextid=wwXIfr"
@@ -61,13 +65,20 @@ const Footer = () => {
                 <Phone className="w-4 h-4 text-primary" />
                 <span className="text-sm">07733 876089</span>
               </a>
+              <a 
+                href="mailto:littlepeople.biggleswade@gmail.com"
+                className="flex items-center gap-3 text-background/70 hover:text-background transition-colors"
+              >
+                <Mail className="w-4 h-4 text-primary" />
+                <span className="text-sm">littlepeople.biggleswade@gmail.com</span>
+              </a>
             </div>
           </div>
         </div>
 
         <div className="border-t border-background/10 pt-8 text-center">
           <p className="text-background/50 text-sm">
-            © {new Date().getFullYear()} Little Stars Daycare. All rights reserved. 
+            © {new Date().getFullYear()} Little People Childminding. All rights reserved. 
             Fully accredited and regulated.
           </p>
         </div>
