@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Baby } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoIcon from "@/assets/logo-icon.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,9 +21,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center">
-              <Baby className="w-5 h-5 text-primary-foreground" />
-            </div>
+            <img 
+              src={logoIcon} 
+              alt="Little People Logo" 
+              className="w-10 h-10 object-contain"
+            />
             <span className="font-display font-bold text-xl text-foreground">
               Little People
             </span>

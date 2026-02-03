@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Facebook, Baby, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Clock } from "lucide-react";
+import logoIcon from "@/assets/logo-icon.png";
 
 const Footer = () => {
   return (
@@ -9,9 +10,11 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                <Baby className="w-5 h-5 text-primary-foreground" />
-              </div>
+              <img 
+                src={logoIcon} 
+                alt="Little People Logo" 
+                className="w-10 h-10 object-contain brightness-0 invert"
+              />
               <span className="font-display font-bold text-xl">Little People</span>
             </div>
             <p className="text-background/70 text-sm leading-relaxed mb-4">
