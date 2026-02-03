@@ -35,8 +35,15 @@ import gallery31 from "@/assets/gallery-31.jpg";
 import gallery32 from "@/assets/gallery-32.jpg";
 import gallery33 from "@/assets/gallery-33.jpg";
 import gallery34 from "@/assets/gallery-34.jpg";
-import gallery35 from "@/assets/gallery-35.jpg";
 import gallery36 from "@/assets/gallery-36.jpg";
+import gallery37 from "@/assets/gallery-37.jpg";
+import gallery38 from "@/assets/gallery-38.jpg";
+import gallery39 from "@/assets/gallery-39.jpg";
+import gallery40 from "@/assets/gallery-40.jpg";
+import gallery41 from "@/assets/gallery-41.jpg";
+import gallery42 from "@/assets/gallery-42.jpg";
+import gallery43 from "@/assets/gallery-43.jpg";
+import gallery44 from "@/assets/gallery-44.jpg";
 
 const galleryImages = [
   { src: gallery7, alt: "Sensory lights and calming toys" },
@@ -67,8 +74,15 @@ const galleryImages = [
   { src: gallery32, alt: "Christmas Elf Report" },
   { src: gallery33, alt: "January learning plans" },
   { src: gallery34, alt: "September focus books" },
-  { src: gallery35, alt: "Farm sensory play tray" },
   { src: gallery36, alt: "Flower water sensory play" },
+  { src: gallery37, alt: "Colourful foam building blocks" },
+  { src: gallery38, alt: "Creative block construction" },
+  { src: gallery39, alt: "Farm animals sensory play" },
+  { src: gallery40, alt: "Farm tray with wooden animals" },
+  { src: gallery41, alt: "Farm sensory play overview" },
+  { src: gallery42, alt: "Magnetic animal board" },
+  { src: gallery43, alt: "Animal magnets learning activity" },
+  { src: gallery44, alt: "Nature treasure collection" },
 ];
 
 const GalleryCarousel = () => {
