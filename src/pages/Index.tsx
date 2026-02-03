@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import VideoBackground from "@/components/VideoBackground";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 import heroImage from "@/assets/hero-daycare.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
@@ -52,10 +52,10 @@ const Index = () => {
       <Header />
       <WhatsAppButton />
 
-      {/* Hero Section with Video Background */}
+      {/* Hero Section with Animated Background */}
       <section className="relative pt-20 md:pt-24 overflow-hidden min-h-[90vh] flex items-center">
         <div className="absolute inset-0 -z-10">
-          <VideoBackground />
+          <AnimatedBackground />
         </div>
         
         <div className="relative container mx-auto px-4 py-16 md:py-24">
