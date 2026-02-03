@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import VideoBackground from "@/components/VideoBackground";
 
 import heroImage from "@/assets/hero-daycare.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
@@ -51,14 +52,14 @@ const Index = () => {
       <Header />
       <WhatsAppButton />
 
-      {/* Hero Section */}
-      <section className="relative pt-20 md:pt-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/50 via-secondary/30 to-background" />
+      {/* Hero Section with Video Background */}
+      <section className="relative pt-20 md:pt-24 overflow-hidden min-h-[90vh] flex items-center">
+        <VideoBackground />
         
         <div className="relative container mx-auto px-4 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full">
                 <Star className="w-4 h-4 text-primary fill-primary" />
                 <span className="text-sm font-medium text-primary">Fully Accredited & Regulated</span>
               </div>
@@ -73,7 +74,7 @@ const Index = () => {
               </p>
 
               {/* Pricing Badge */}
-              <div className="inline-flex items-center gap-3 px-5 py-3 bg-card rounded-2xl shadow-soft">
+              <div className="inline-flex items-center gap-3 px-5 py-3 bg-card/90 backdrop-blur-sm rounded-2xl shadow-soft">
                 <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
                   <PoundSterling className="w-5 h-5 text-primary" />
                 </div>
@@ -91,18 +92,18 @@ const Index = () => {
                   </Button>
                 </a>
                 <Link to="/about">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto bg-background/50 backdrop-blur-sm">
                     Meet Ema
                   </Button>
                 </Link>
               </div>
 
               <div className="flex flex-wrap items-center gap-4 justify-center lg:justify-start pt-4">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-card/80 backdrop-blur-sm rounded-full">
                   <MapPin className="w-4 h-4 text-primary" />
                   <span className="text-sm text-muted-foreground">Biggleswade, SG18 8YF</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-card/80 backdrop-blur-sm rounded-full">
                   <Clock className="w-4 h-4 text-primary" />
                   <span className="text-sm text-muted-foreground">Mon-Fri 8am-5:30pm</span>
                 </div>
