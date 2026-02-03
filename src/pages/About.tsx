@@ -1,36 +1,37 @@
-import { Heart, Shield, Award, Users, Check } from "lucide-react";
+import { Heart, Shield, Award, Users, Check, Baby, Sparkles, BookOpen } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const About = () => {
   const values = [
     {
       icon: Heart,
-      title: "Nurturing Care",
-      description: "Every child receives individual attention and love in our warm, supportive environment."
+      title: "Warmth & Security",
+      description: "Creating a calm, safe and loving environment where children feel valued and confident."
     },
     {
       icon: Shield,
-      title: "Safe & Secure",
-      description: "Fully accredited and regulated facility with trained staff and secure premises."
+      title: "Safe & Regulated",
+      description: "Fully accredited and regulated childminder meeting all UK early years standards."
     },
     {
-      icon: Award,
-      title: "Quality Education",
-      description: "Age-appropriate learning through play, fostering curiosity and development."
+      icon: BookOpen,
+      title: "Development-Focused",
+      description: "Intentional care aligned with UK early years standards and EYFS curriculum."
     },
     {
       icon: Users,
       title: "Family Partnership",
-      description: "We believe in working closely with families to support each child's journey."
+      description: "Close communication with parents to ensure personalised care for each child."
     }
   ];
 
   const accreditations = [
     "Ofsted Registered & Regulated",
-    "Enhanced DBS Checked Staff",
-    "First Aid Certified Team",
-    "Early Years Foundation Stage (EYFS) Curriculum",
+    "Enhanced DBS Checked",
+    "First Aid Certified",
+    "Early Years Foundation Stage (EYFS) Aligned",
     "Health & Safety Compliant",
     "Safeguarding Trained"
   ];
@@ -38,58 +39,93 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <WhatsAppButton />
       
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 bg-gradient-to-b from-accent/50 to-background">
         <div className="container mx-auto text-center max-w-3xl">
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
-            About Us
+            Meet Ema
           </span>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
-            A Place Where Little Ones <span className="text-primary">Thrive</span>
+            Where Little Ones <span className="text-primary">Thrive</span>
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            For over a decade, we've been providing exceptional care for children aged 0-3 
-            in the heart of Biggleswade. Our dedicated team creates a loving environment 
-            where every child can explore, learn, and grow.
+            A fully accredited and regulated childminder providing high-quality care 
+            for children aged 0-3 in Biggleswade. Dedicated to giving every child 
+            the strongest possible start in life.
           </p>
         </div>
       </section>
 
-      {/* Our Story */}
+      {/* About Ema */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="text-3xl font-display font-bold text-foreground mb-6">
-                Our Story
+                About Ema
               </h2>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                Founded by passionate early years educators, our daycare centre was born 
-                from a simple belief: every child deserves the best possible start in life.
-              </p>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                Located in the beautiful market town of Biggleswade, we've created a 
-                home-from-home environment where children aged 0-3 can thrive. Our small 
-                group sizes ensure each child receives the individual attention they need 
-                to flourish.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                We're proud to be fully accredited and regulated, giving parents peace 
-                of mind while their little ones are in our care.
-              </p>
-            </div>
-            <div className="relative">
-              <div className="bg-gradient-to-br from-primary/20 to-secondary/30 rounded-3xl p-8 aspect-square flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl font-display font-bold text-primary mb-2">0-3</div>
-                  <div className="text-xl text-foreground font-medium">Years Old</div>
-                  <p className="text-muted-foreground mt-2">Babies to Toddlers</p>
-                </div>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Ema is a fully accredited and regulated childminder in the UK, providing 
+                  high-quality care for children aged 0–3 years. With a deep understanding 
+                  of early childhood development and a genuine passion for nurturing young 
+                  minds, she is committed to giving every child the strongest possible start in life.
+                </p>
+                <p>
+                  As a mother of two young girls aged 3 and 1, Ema understands firsthand how 
+                  important the early years are. She recognises that babies and toddlers need 
+                  more than supervision — they need warmth, structure, consistency and emotional 
+                  security. Her approach is built around creating a calm, safe and loving 
+                  environment where children feel valued, supported and confident to explore.
+                </p>
+                <p>
+                  Ema delivers care that is intentional and development-focused, aligned with 
+                  UK early years standards. Through structured routines, play-based learning 
+                  and close communication with parents, she supports each child's emotional, 
+                  social and cognitive development at their own pace.
+                </p>
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-accent rounded-2xl p-4 shadow-soft">
-                <div className="text-3xl font-bold text-primary">10+</div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
+            </div>
+            <div className="space-y-6">
+              <div className="bg-gradient-to-br from-primary/10 to-secondary/20 rounded-3xl p-8">
+                <div className="text-center mb-6">
+                  <div className="w-24 h-24 bg-primary/20 rounded-full mx-auto flex items-center justify-center mb-4">
+                    <Baby className="w-12 h-12 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-display font-bold text-foreground">Ema's Philosophy</h3>
+                </div>
+                <blockquote className="text-center text-foreground italic leading-relaxed">
+                  "When children feel secure, understood and encouraged, they thrive. I work 
+                  in partnership with families to ensure every child receives personalised care 
+                  designed to build confidence, curiosity and a lifelong love of learning."
+                </blockquote>
+              </div>
+              
+              <div className="bg-card rounded-2xl p-6 shadow-soft">
+                <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-primary" />
+                  What Makes Ema Special
+                </h4>
+                <ul className="space-y-3 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>Mother of two young children (ages 3 and 1)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>Deep understanding of early childhood development</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>Focus on warmth, structure and emotional security</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>Play-based learning approach</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -101,11 +137,11 @@ const About = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold text-foreground mb-4">
-              Our Values
+              Care Philosophy
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Everything we do is guided by our commitment to providing the highest 
-              quality care and education for your little ones.
+              Everything is guided by a commitment to providing the highest 
+              quality care and supporting each child's unique development journey.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -133,7 +169,7 @@ const About = () => {
               Fully Accredited & Regulated
             </h2>
             <p className="text-muted-foreground">
-              Your child's safety and development are our top priorities.
+              Your child's safety and development are the top priorities.
             </p>
           </div>
           <div className="bg-gradient-to-br from-primary/5 to-secondary/10 rounded-3xl p-8">

@@ -1,4 +1,4 @@
-import { Star, MapPin, Phone, Clock, Shield, Heart, Baby, Sparkles } from "lucide-react";
+import { Star, MapPin, Phone, Clock, Shield, Heart, Baby, Sparkles, Mail, PoundSterling } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
@@ -23,17 +23,17 @@ const Index = () => {
     {
       icon: Shield,
       title: "Fully Accredited",
-      description: "Ofsted registered and regulated facility"
+      description: "Ofsted registered and regulated childminder"
     },
     {
       icon: Heart,
       title: "Nurturing Care",
-      description: "Warm, loving environment for your child"
+      description: "Warm, loving home-from-home environment"
     },
     {
       icon: Sparkles,
       title: "Play & Learn",
-      description: "EYFS curriculum through creative play"
+      description: "EYFS aligned play-based learning"
     }
   ];
 
@@ -68,32 +68,43 @@ const Index = () => {
               </h1>
               
               <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0">
-                A nurturing home-from-home daycare for children aged 0-3 in the heart of 
+                A nurturing home-from-home childminding service for children aged 0-3 in 
                 Biggleswade. Where every child is cherished, cared for, and encouraged to flourish.
               </p>
+
+              {/* Pricing Badge */}
+              <div className="inline-flex items-center gap-3 px-5 py-3 bg-card rounded-2xl shadow-soft">
+                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                  <PoundSterling className="w-5 h-5 text-primary" />
+                </div>
+                <div className="text-left">
+                  <div className="text-2xl font-bold text-foreground">£7.50<span className="text-base font-normal text-muted-foreground">/hour</span></div>
+                  <div className="text-sm text-muted-foreground">Flexible scheduling available</div>
+                </div>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a href="https://wa.me/447733876089" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="gap-2 w-full sm:w-auto">
                     <Phone className="w-4 h-4" />
-                    Contact Us
+                    WhatsApp Us
                   </Button>
                 </a>
                 <Link to="/about">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                    Learn More
+                    Meet Ema
                   </Button>
                 </Link>
               </div>
 
-              <div className="flex items-center gap-6 justify-center lg:justify-start pt-4">
+              <div className="flex flex-wrap items-center gap-4 justify-center lg:justify-start pt-4">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-primary" />
                   <span className="text-sm text-muted-foreground">Biggleswade, SG18 8YF</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-muted-foreground">Mon-Fri</span>
+                  <span className="text-sm text-muted-foreground">Mon-Fri 8am-5:30pm</span>
                 </div>
               </div>
             </div>
@@ -102,7 +113,7 @@ const Index = () => {
               <div className="relative rounded-3xl overflow-hidden shadow-glow">
                 <img 
                   src={heroImage}
-                  alt="Little Stars Daycare - A warm and welcoming nursery environment"
+                  alt="Little People Childminding - A warm and welcoming environment"
                   className="w-full h-[400px] md:h-[500px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
@@ -145,8 +156,40 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* Schedule & Pricing Section */}
       <section className="py-16 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium mb-4">
+              Schedule & Pricing
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              Flexible Care for Your Family
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-gradient-to-br from-primary/10 to-secondary/20 rounded-3xl p-8 text-center">
+              <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="text-xl font-display font-bold text-foreground mb-2">Opening Hours</h3>
+              <p className="text-3xl font-bold text-foreground mb-2">8:00 AM - 5:30 PM</p>
+              <p className="text-muted-foreground">Monday to Friday</p>
+              <p className="text-sm text-primary mt-4 font-medium">Schedule can be slightly flexible</p>
+            </div>
+
+            <div className="bg-gradient-to-br from-accent to-secondary/30 rounded-3xl p-8 text-center">
+              <PoundSterling className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="text-xl font-display font-bold text-foreground mb-2">Hourly Rate</h3>
+              <p className="text-3xl font-bold text-foreground mb-2">£7.50 / hour</p>
+              <p className="text-muted-foreground">Competitive & Fair Pricing</p>
+              <p className="text-sm text-primary mt-4 font-medium">Contact for availability</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium mb-4">
@@ -156,7 +199,7 @@ const Index = () => {
               A Day in the Life
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Take a peek into our nurturing environment where children learn, play, and grow together every day.
+              Take a peek into the nurturing environment where children learn, play, and grow together every day.
             </p>
           </div>
 
@@ -194,20 +237,15 @@ const Index = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Nestled in the charming market town of Biggleswade, Bedfordshire, our daycare 
-                  centre is perfectly positioned for families in the local community. This historic 
-                  town offers the perfect blend of traditional character and modern amenities.
+                  Nestled in the charming market town of Biggleswade, Bedfordshire, this 
+                  childminding service is perfectly positioned for families in the local community. 
+                  This historic town offers the perfect blend of traditional character and modern amenities.
                 </p>
                 <p>
                   Biggleswade is known for its friendly community spirit, beautiful parks, and 
                   excellent transport links. With the River Ivel flowing through, there's plenty 
                   of natural beauty for families to enjoy, from riverside walks to the 
                   award-winning town centre.
-                </p>
-                <p>
-                  We're proud to be part of this wonderful community, providing exceptional 
-                  childcare that allows local families to balance work and family life with 
-                  complete peace of mind.
                 </p>
               </div>
 
@@ -264,7 +302,7 @@ const Index = () => {
               Ready to Join Our Family?
             </h2>
             <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-              We'd love to show you around and discuss how we can support your child's 
+              Ema would love to meet you and discuss how she can support your child's 
               early years journey. Get in touch today!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -274,16 +312,21 @@ const Index = () => {
                   WhatsApp Us
                 </Button>
               </a>
-              <a
-                href="https://www.facebook.com/share/1GGzMemeYy/?mibextid=wwXIfr"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="mailto:littlepeople.biggleswade@gmail.com">
                 <Button size="lg" variant="outline" className="gap-2 w-full sm:w-auto border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                  Follow on Facebook
+                  <Mail className="w-4 h-4" />
+                  Email Us
                 </Button>
               </a>
             </div>
+            <a
+              href="https://www.facebook.com/share/1GGzMemeYy/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-6 text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors"
+            >
+              Follow us on Facebook →
+            </a>
           </div>
         </div>
       </section>
