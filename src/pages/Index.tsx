@@ -47,23 +47,23 @@ const Index = () => {
         <div className="relative container mx-auto px-4 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/15 backdrop-blur-sm rounded-full animate-bounce-soft">
                 <Star className="w-4 h-4 text-primary fill-primary" />
                 <span className="text-sm font-medium text-primary">Fully Accredited & Regulated</span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight">
-                Where Little Ones <span className="text-primary">Shine</span> Bright
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight animate-fade-in-up">
+                Where Little Ones <span className="text-primary animate-pulse-soft inline-block">Shine</span> Bright
               </h1>
               
-              <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0">
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 A nurturing home-from-home childminding service for children aged 0-3 in 
                 Biggleswade. Where every child is cherished, cared for, and encouraged to flourish.
               </p>
 
               {/* Pricing Badge */}
-              <div className="inline-flex items-center gap-3 px-5 py-3 bg-card/90 backdrop-blur-sm rounded-2xl shadow-soft">
-                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+              <div className="inline-flex items-center gap-3 px-5 py-3 bg-card/90 backdrop-blur-sm rounded-2xl shadow-soft hover:shadow-glow transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center">
                   <PoundSterling className="w-5 h-5 text-primary" />
                 </div>
                 <div className="text-left">
@@ -72,47 +72,47 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                 <a href="https://wa.me/447733876089" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="gap-2 w-full sm:w-auto">
+                  <Button size="lg" className="gap-2 w-full sm:w-auto hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-glow">
                     <Phone className="w-4 h-4" />
                     WhatsApp Us
                   </Button>
                 </a>
                 <Link to="/about">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto bg-background/50 backdrop-blur-sm">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto bg-background/50 backdrop-blur-sm hover:bg-secondary hover:scale-105 transition-all duration-200">
                     Meet Ema
                   </Button>
                 </Link>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 justify-center lg:justify-start pt-4">
-                <div className="flex items-center gap-2 px-3 py-1.5 bg-card/80 backdrop-blur-sm rounded-full">
+              <div className="flex flex-wrap items-center gap-4 justify-center lg:justify-start pt-4 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-secondary/80 backdrop-blur-sm rounded-full hover:bg-secondary transition-colors">
                   <MapPin className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-muted-foreground">Biggleswade, SG18 8YF</span>
+                  <span className="text-sm text-foreground">Biggleswade, SG18 8YF</span>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1.5 bg-card/80 backdrop-blur-sm rounded-full">
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-accent/80 backdrop-blur-sm rounded-full hover:bg-accent transition-colors">
                   <Clock className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-muted-foreground">Mon-Fri 8am-5:30pm</span>
+                  <span className="text-sm text-foreground">Mon-Fri 8am-5:30pm</span>
                 </div>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-glow">
+            <div className="relative animate-fade-in-scale" style={{ animationDelay: '0.3s' }}>
+              <div className="relative rounded-3xl overflow-hidden shadow-glow hover:shadow-xl transition-shadow duration-300">
                 <img 
                   src={heroImage}
                   alt="Little People Childminding - A warm and welcoming environment"
-                  className="w-full h-[400px] md:h-[500px] object-cover"
+                  className="w-full h-[400px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent" />
               </div>
               
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -left-4 bg-card rounded-2xl p-4 shadow-soft animate-float">
+              <div className="absolute -bottom-4 -left-4 bg-card rounded-2xl p-4 shadow-soft animate-float hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                    <Baby className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center">
+                    <Baby className="w-6 h-6 text-primary animate-wiggle" />
                   </div>
                   <div>
                     <div className="font-bold text-foreground">Ages 0-3</div>
@@ -120,24 +120,30 @@ const Index = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Additional floating element */}
+              <div className="absolute -top-2 -right-2 bg-accent rounded-xl p-3 shadow-soft animate-float-delayed hidden md:block">
+                <Sparkles className="w-5 h-5 text-primary" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-16 px-4 bg-gradient-to-br from-secondary/30 via-muted/20 to-accent/20">
         <div className="container mx-auto max-w-6xl">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="bg-card rounded-2xl p-6 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group bg-card rounded-2xl p-6 shadow-soft hover:shadow-glow transition-all duration-300 hover:-translate-y-2 hover:bg-gradient-to-br hover:from-card hover:to-secondary/20"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-6 h-6 text-primary group-hover:animate-wiggle" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
+                <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
               </div>
             ))}
@@ -149,7 +155,7 @@ const Index = () => {
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium mb-4 animate-bounce-soft">
               Schedule & Pricing
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
@@ -158,31 +164,35 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/20 rounded-3xl p-8 text-center">
-              <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
+            <div className="group bg-gradient-to-br from-secondary/40 via-accent/20 to-primary/10 rounded-3xl p-8 text-center hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
+              <div className="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <Clock className="w-8 h-8 text-primary group-hover:animate-wiggle" />
+              </div>
               <h3 className="text-xl font-display font-bold text-foreground mb-2">Opening Hours</h3>
-              <p className="text-3xl font-bold text-foreground mb-2">8:00 AM - 5:30 PM</p>
+              <p className="text-3xl font-bold text-primary mb-2">8:00 AM - 5:30 PM</p>
               <p className="text-muted-foreground">Monday to Friday</p>
-              <p className="text-sm text-primary mt-4 font-medium">Schedule can be slightly flexible</p>
+              <p className="text-sm text-secondary-foreground mt-4 font-medium bg-secondary/50 rounded-full px-3 py-1 inline-block">Schedule can be flexible</p>
             </div>
 
-            <div className="bg-gradient-to-br from-accent to-secondary/30 rounded-3xl p-8 text-center">
-              <PoundSterling className="w-12 h-12 text-primary mx-auto mb-4" />
+            <div className="group bg-gradient-to-br from-accent/50 via-secondary/30 to-primary/10 rounded-3xl p-8 text-center hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
+              <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <PoundSterling className="w-8 h-8 text-primary group-hover:animate-wiggle" />
+              </div>
               <h3 className="text-xl font-display font-bold text-foreground mb-2">Hourly Rate</h3>
-              <p className="text-3xl font-bold text-foreground mb-2">£7.50 / hour</p>
+              <p className="text-3xl font-bold text-primary mb-2">£7.50 / hour</p>
               <p className="text-muted-foreground">Competitive & Fair Pricing</p>
-              <p className="text-sm text-primary mt-4 font-medium">Contact for availability</p>
+              <p className="text-sm text-accent-foreground mt-4 font-medium bg-accent/50 rounded-full px-3 py-1 inline-block">Contact for availability</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-16 px-4 bg-gradient-to-br from-accent/20 via-muted/30 to-secondary/20">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium mb-4">
-              Our Gallery
+            <span className="inline-block px-4 py-1.5 bg-accent text-accent-foreground rounded-full text-sm font-medium mb-4 animate-bounce-soft">
+              ✨ Our Gallery
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
               A Day in the Life
@@ -271,36 +281,47 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="bg-primary rounded-3xl p-8 md:p-12 text-center text-primary-foreground">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Ready to Join Our Family?
-            </h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-              Ema would love to meet you and discuss how she can support your child's 
-              early years journey. Get in touch today!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/447733876089" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="secondary" className="gap-2 w-full sm:w-auto">
-                  <Phone className="w-4 h-4" />
-                  WhatsApp Us
-                </Button>
-              </a>
-              <a href="mailto:littlepeople.biggleswade@gmail.com">
-                <Button size="lg" variant="outline" className="gap-2 w-full sm:w-auto border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                  <Mail className="w-4 h-4" />
-                  Email Us
-                </Button>
+          <div className="relative bg-gradient-to-br from-primary via-primary to-[hsl(25,85%,55%)] rounded-3xl p-8 md:p-12 text-center text-primary-foreground overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-4 left-4 w-20 h-20 bg-primary-foreground/10 rounded-full blur-xl animate-float" />
+            <div className="absolute bottom-4 right-4 w-32 h-32 bg-primary-foreground/10 rounded-full blur-xl animate-float-delayed" />
+            <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-accent/20 rounded-full blur-lg animate-float" style={{ animationDelay: '1s' }} />
+            
+            <div className="relative z-10">
+              <div className="inline-block mb-4">
+                <Heart className="w-10 h-10 animate-pulse-soft" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+                Ready to Join Our Family?
+              </h2>
+              <p className="text-primary-foreground/90 mb-8 max-w-xl mx-auto">
+                Ema would love to meet you and discuss how she can support your child's 
+                early years journey. Get in touch today!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/447733876089" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" variant="secondary" className="gap-2 w-full sm:w-auto hover:scale-105 transition-transform shadow-lg">
+                    <Phone className="w-4 h-4" />
+                    WhatsApp Us
+                  </Button>
+                </a>
+                <a href="mailto:littlepeople.biggleswade@gmail.com">
+                  <Button size="lg" variant="outline" className="gap-2 w-full sm:w-auto border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/20 hover:scale-105 transition-all">
+                    <Mail className="w-4 h-4" />
+                    Email Us
+                  </Button>
+                </a>
+              </div>
+              <a
+                href="https://www.facebook.com/share/1GGzMemeYy/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-6 text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors group"
+              >
+                Follow us on Facebook 
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
               </a>
             </div>
-            <a
-              href="https://www.facebook.com/share/1GGzMemeYy/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-6 text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors"
-            >
-              Follow us on Facebook →
-            </a>
           </div>
         </div>
       </section>
