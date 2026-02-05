@@ -7,7 +7,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import GalleryCarousel from "@/components/GalleryCarousel";
 
-import heroImage from "@/assets/gallery-27.jpg";
+import heroImage from "@/assets/hero-nursery.png";
 
 const Index = () => {
   const features = [
