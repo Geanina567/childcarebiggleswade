@@ -8,6 +8,7 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 import GalleryCarousel from "@/components/GalleryCarousel";
 
 import heroImage from "@/assets/gallery-27.jpg";
+import nurseryImage from "@/assets/nursery-room.png";
 
 const Index = () => {
   const features = [
@@ -109,14 +110,17 @@ const Index = () => {
               </div>
               
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -left-4 bg-card rounded-2xl p-4 shadow-soft animate-float hover:shadow-lg transition-shadow">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center">
-                    <Baby className="w-6 h-6 text-primary animate-wiggle" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-foreground">Ages 0-3</div>
-                    <div className="text-sm text-muted-foreground">Babies & Toddlers</div>
+              <div className="absolute -bottom-6 -left-6 bg-card rounded-2xl overflow-hidden shadow-glow animate-float hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative">
+                  <img 
+                    src={nurseryImage}
+                    alt="Cozy nursery play area"
+                    className="w-32 h-24 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
+                  <div className="absolute bottom-2 left-2 right-2">
+                    <div className="text-xs font-bold text-white drop-shadow-lg">Ages 0-3</div>
+                    <div className="text-[10px] text-white/90 drop-shadow">Nurturing Environment</div>
                   </div>
                 </div>
               </div>
