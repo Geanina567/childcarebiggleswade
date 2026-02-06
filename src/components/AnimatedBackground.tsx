@@ -1,3 +1,5 @@
+import FlyingButterflies from "./FlyingButterflies";
+
 const AnimatedBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
@@ -85,10 +87,13 @@ const AnimatedBackground = () => {
             right: '8%', 
             animationDelay: '4s', 
             animationDuration: '6s',
-            background: 'radial-gradient(circle, hsl(160, 50%, 65%, 0.4) 0%, transparent 70%)'
+          background: 'radial-gradient(circle, hsl(160, 50%, 65%, 0.4) 0%, transparent 70%)'
           }}
         />
       </div>
+      
+      {/* Flying Butterflies */}
+      <FlyingButterflies />
     </div>
   );
 };
