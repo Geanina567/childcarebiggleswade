@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoIcon from "@/assets/logo-icon.png";
-import HeaderToys from "@/components/HeaderToys";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +17,12 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <HeaderToys />
+      {/* Ofsted Tagline */}
+      <div className="bg-primary/10 text-center py-1.5 px-4">
+        <p className="text-xs md:text-sm font-medium text-foreground">
+          Ofsted Registered Childminder in Biggleswade | Emanuela Vasile
+        </p>
+      </div>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
