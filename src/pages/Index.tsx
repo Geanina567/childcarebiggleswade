@@ -79,9 +79,15 @@ const Index = () => {
                   <PoundSterling className="w-5 h-5 text-primary" />
                 </div>
                 <div className="text-left">
-                  <div className="text-2xl font-bold text-foreground">£7.50<span className="text-base font-normal text-muted-foreground">/hour</span></div>
-                  <div className="text-sm text-muted-foreground">Flexible scheduling available</div>
+                  <div className="text-2xl font-bold text-foreground">Starting at £7.50<span className="text-base font-normal text-muted-foreground">/hour</span></div>
+                  <div className="text-sm text-muted-foreground">Subject to availability</div>
                 </div>
+              </div>
+
+              {/* Funded Places Highlight */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/80 backdrop-blur-sm rounded-full animate-fade-in-up" style={{ animationDelay: '0.35s' }}>
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-foreground">Affordable childcare with funded places for eligible children</span>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
@@ -191,9 +197,21 @@ const Index = () => {
                 <PoundSterling className="w-8 h-8 text-primary group-hover:animate-wiggle" />
               </div>
               <h3 className="text-xl font-display font-bold text-foreground mb-2">Hourly Rate</h3>
-              <p className="text-3xl font-bold text-primary mb-2">£7.50 / hour</p>
-              <p className="text-muted-foreground">Competitive & Fair Pricing</p>
+              <p className="text-3xl font-bold text-primary mb-2">Starting at £7.50</p>
+              <p className="text-muted-foreground">Subject to availability</p>
               <p className="text-sm text-accent-foreground mt-4 font-medium bg-accent/50 rounded-full px-3 py-1 inline-block">Contact for availability</p>
+            </div>
+
+            {/* Funded Places Banner */}
+            <div className="md:col-span-2 bg-gradient-to-r from-primary/10 via-secondary/30 to-accent/20 rounded-2xl p-6 text-center">
+              <div className="flex items-center justify-center gap-3">
+                <Sparkles className="w-6 h-6 text-primary" />
+                <p className="text-lg font-display font-bold text-foreground">
+                  Affordable childcare with funded places for eligible children
+                </p>
+                <Sparkles className="w-6 h-6 text-primary" />
+              </div>
+              <p className="text-sm text-muted-foreground mt-2">Ask about government-funded hours for 2, 3 & 4 year olds</p>
             </div>
           </div>
         </div>
