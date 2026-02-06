@@ -64,8 +64,8 @@ const Index = () => {
                 <span className="text-sm font-medium text-primary">Fully Accredited & Regulated</span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight animate-fade-in-up">
-                Where Little Ones <span className="text-primary animate-pulse-soft inline-block">Shine</span> Bright
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight">
+                Where Little Ones <span className="text-primary">Shine</span> Bright
               </h1>
               
               <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
