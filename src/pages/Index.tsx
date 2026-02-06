@@ -31,7 +31,7 @@ const Index = () => {
     {
       icon: Sparkles,
       title: "Play & Learn",
-      description: "EYFS aligned play-based learning"
+      description: "EYFS aligned play-based learning. Outdoor learning & nature-based activities"
     }
   ];
 
@@ -74,20 +74,21 @@ const Index = () => {
               </p>
 
               {/* Pricing Badge */}
+              {/* Funded Places Highlight - Prominent Card */}
               <div className="inline-flex items-center gap-3 px-5 py-3 bg-card/90 backdrop-blur-sm rounded-2xl shadow-soft hover:shadow-glow transition-all duration-300 hover:scale-105 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center">
-                  <PoundSterling className="w-5 h-5 text-primary" />
+                  <Sparkles className="w-5 h-5 text-primary" />
                 </div>
                 <div className="text-left">
-                  <div className="text-2xl font-bold text-foreground">Starting at £7.50<span className="text-base font-normal text-muted-foreground">/hour</span></div>
-                  <div className="text-sm text-muted-foreground">Subject to availability</div>
+                  <div className="text-xl font-bold text-foreground">Affordable childcare with funded places</div>
+                  <div className="text-sm text-muted-foreground">For eligible children</div>
                 </div>
               </div>
 
-              {/* Funded Places Highlight */}
+              {/* Pricing Badge - Subtle */}
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/80 backdrop-blur-sm rounded-full animate-fade-in-up" style={{ animationDelay: '0.35s' }}>
-                <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-foreground">Affordable childcare with funded places for eligible children</span>
+                <PoundSterling className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-foreground">Starting at £7.50/hour · Subject to availability</span>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
