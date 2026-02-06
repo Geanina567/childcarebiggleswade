@@ -1,6 +1,6 @@
 const FloatingBugs = () => {
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-10">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-10 opacity-30">
       {/* Butterflies */}
       <div 
         className="absolute text-2xl animate-butterfly-1"
