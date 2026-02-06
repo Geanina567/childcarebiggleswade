@@ -6,8 +6,10 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import GalleryCarousel from "@/components/GalleryCarousel";
+import FloatingBugs from "@/components/FloatingBugs";
 
 import heroImage from "@/assets/hero-nursery.png";
+import childminderIllustration from "@/assets/childminder-illustration.png";
 
 const Index = () => {
   const features = [
@@ -37,6 +39,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <WhatsAppButton />
+      <FloatingBugs />
 
       {/* Hero Section with Animated Background */}
       <section className="relative pt-20 md:pt-24 overflow-hidden min-h-[90vh] flex items-center">
@@ -47,6 +50,15 @@ const Index = () => {
         <div className="relative container mx-auto px-4 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left space-y-6">
+              {/* Childminder Illustration */}
+              <div className="flex justify-center lg:justify-start mb-4 animate-fade-in-scale">
+                <img 
+                  src={childminderIllustration}
+                  alt="Childminder with happy children"
+                  className="w-32 h-32 md:w-40 md:h-40 object-contain rounded-full shadow-soft hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/15 backdrop-blur-sm rounded-full animate-bounce-soft">
                 <Star className="w-4 h-4 text-primary fill-primary" />
                 <span className="text-sm font-medium text-primary">Fully Accredited & Regulated</span>
