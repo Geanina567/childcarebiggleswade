@@ -26,7 +26,7 @@ const Header = () => {
             <img 
               src={logoIcon} 
               alt="Little People Logo" 
-              className="w-10 h-10 object-contain"
+              className="w-12 h-12 md:w-14 md:h-14 object-contain rounded-full shadow-md"
             />
             <span className="font-display font-bold text-xl text-foreground">
               Little People
