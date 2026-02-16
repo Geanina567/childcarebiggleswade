@@ -61,47 +61,24 @@ const FloatingBugs = () => {
       {/* Fixed overlay for butterfly and ladybug */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-10">
         <div className={`transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          {/* Blue butterfly with glitter - in empty space, away from text */}
+          {/* Butterfly video - in white space, away from text */}
           <div
             className="absolute animate-butterfly-hover transition-all duration-1000 hidden md:block"
             style={{
-              top: "22%",
-              ...(butterflyRight ? { right: "2%" } : { left: "2%" }),
+              top: "18%",
+              ...(butterflyRight ? { right: "3%" } : { left: "3%" }),
+              transform: butterflyRight ? "scaleX(1)" : "scaleX(-1)",
             }}
           >
-            <div className="relative">
-              <div className="absolute -inset-6">
-                {[...Array(8)].map((_, i) => (
-                  <span
-                    key={i}
-                    className="absolute animate-pulse text-[10px]"
-                    style={{
-                      top: `${15 + Math.sin(i * 0.8) * 35}%`,
-                      left: `${10 + Math.cos(i * 1.1) * 40 + 30}%`,
-                      animationDelay: `${i * 0.25}s`,
-                      animationDuration: `${1.2 + i * 0.15}s`,
-                      color: `hsl(${200 + i * 8}, 90%, ${70 + (i % 3) * 10}%)`,
-                    }}
-                  >
-                    ✦
-                  </span>
-                ))}
-              </div>
-              <svg width="100" height="80" viewBox="0 0 80 60" className="drop-shadow-lg">
-                <ellipse cx="28" cy="22" rx="20" ry="16" fill="hsl(210, 95%, 55%)" opacity="0.9" className="origin-[40px_30px] animate-flutter-left" />
-                <ellipse cx="30" cy="38" rx="14" ry="10" fill="hsl(200, 90%, 60%)" opacity="0.85" className="origin-[40px_30px] animate-flutter-left" />
-                <ellipse cx="52" cy="22" rx="20" ry="16" fill="hsl(220, 95%, 55%)" opacity="0.9" className="origin-[40px_30px] animate-flutter-right" />
-                <ellipse cx="50" cy="38" rx="14" ry="10" fill="hsl(215, 90%, 60%)" opacity="0.85" className="origin-[40px_30px] animate-flutter-right" />
-                <ellipse cx="26" cy="20" rx="8" ry="6" fill="hsl(195, 100%, 80%)" opacity="0.7" className="origin-[40px_30px] animate-flutter-left" />
-                <ellipse cx="54" cy="20" rx="8" ry="6" fill="hsl(225, 100%, 80%)" opacity="0.7" className="origin-[40px_30px] animate-flutter-right" />
-                <ellipse cx="40" cy="30" rx="3" ry="14" fill="hsl(210, 40%, 25%)" />
-                <circle cx="40" cy="14" r="3.5" fill="hsl(210, 40%, 25%)" />
-                <line x1="40" y1="12" x2="34" y2="4" stroke="hsl(210, 40%, 25%)" strokeWidth="1" />
-                <circle cx="34" cy="4" r="1.5" fill="hsl(210, 90%, 65%)" />
-                <line x1="40" y1="12" x2="46" y2="4" stroke="hsl(210, 40%, 25%)" strokeWidth="1" />
-                <circle cx="46" cy="4" r="1.5" fill="hsl(210, 90%, 65%)" />
-              </svg>
-            </div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-16 h-16 object-contain drop-shadow-lg"
+              style={{ mixBlendMode: "multiply" }}
+              src="/videos/butterfly.mp4"
+            />
           </div>
 
           {/* Ladybug */}
