@@ -117,7 +117,7 @@ const FloatingBugs = () => {
             muted
             playsInline
             className="w-16 h-16 object-contain"
-            style={{ mixBlendMode: "multiply", filter: "contrast(1.15) saturate(1.3) brightness(1.05)" }}
+            style={{ mixBlendMode: "multiply", filter: "contrast(1.3) saturate(1.3) brightness(1.1)" }}
             src="/videos/butterfly.mp4"
           />
         </div>,
@@ -140,7 +140,7 @@ const FloatingBugs = () => {
             muted
             playsInline
             className="w-14 h-14 object-contain"
-            style={{ mixBlendMode: "multiply", filter: "contrast(1.15) saturate(1.3) brightness(1.05)" }}
+            style={{ mixBlendMode: "multiply", filter: "contrast(1.4) saturate(1.4) brightness(1.15)" }}
             src="/videos/ladybug-video.mp4"
           />
         </div>,
