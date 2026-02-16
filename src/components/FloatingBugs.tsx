@@ -1,12 +1,13 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef } from "react";
+import { createPortal } from "react-dom";
 
 const FloatingBugs = () => {
   const [showBee, setShowBee] = useState(false);
   const [beeKey, setBeeKey] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [framePos, setFramePos] = useState<{ x: number; y: number; size: number } | null>(null);
   const [butterflyRight, setButterflyRight] = useState(true);
   const [scrollDir, setScrollDir] = useState<"up" | "down">("down");
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const lastScrollY = useRef(0);
 
   // Track scroll direction + hide/show + butterfly side switch
@@ -14,8 +15,7 @@ const FloatingBugs = () => {
     let timeout: ReturnType<typeof setTimeout>;
     const handleScroll = () => {
       const currentY = window.scrollY;
-      const dir = currentY < lastScrollY.current ? "up" : "down";
-      setScrollDir(dir);
+      setScrollDir(currentY < lastScrollY.current ? "up" : "down");
       lastScrollY.current = currentY;
 
       setIsVisible(false);
@@ -32,23 +32,13 @@ const FloatingBugs = () => {
     };
   }, []);
 
-  // Find picture frame
+  // Find anchor element for bee
   useEffect(() => {
-    const findFrame = () => {
-      const frame = document.getElementById("hero-picture-frame");
-      if (frame) {
-        const img = frame.querySelector("img");
-        if (img) {
-          const rect = img.getBoundingClientRect();
-          setFramePos({
-            x: rect.left + rect.width / 2,
-            y: rect.top + rect.height / 2 + window.scrollY,
-            size: rect.width,
-          });
-        }
-      }
+    const find = () => {
+      const el = document.getElementById("bee-orbit-anchor");
+      if (el) setAnchorEl(el);
     };
-    setTimeout(findFrame, 1000);
+    setTimeout(find, 500);
   }, []);
 
   // Bee every 30 seconds
@@ -67,107 +57,113 @@ const FloatingBugs = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-10">
-      <div className={`transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-        {/* Blue butterfly with glitter - switches sides */}
-        <div
-          className="absolute animate-butterfly-hover transition-all duration-1000"
-          style={{
-            top: "15%",
-            ...(butterflyRight ? { right: "4%", left: "auto" } : { left: "4%", right: "auto" }),
-          }}
-        >
-          <div className="relative">
-            <div className="absolute -inset-6">
-              {[...Array(8)].map((_, i) => (
-                <span
-                  key={i}
-                  className="absolute animate-pulse text-[10px]"
-                  style={{
-                    top: `${15 + Math.sin(i * 0.8) * 35}%`,
-                    left: `${10 + Math.cos(i * 1.1) * 40 + 30}%`,
-                    animationDelay: `${i * 0.25}s`,
-                    animationDuration: `${1.2 + i * 0.15}s`,
-                    color: `hsl(${200 + i * 8}, 90%, ${70 + (i % 3) * 10}%)`,
-                  }}
-                >
-                  ✦
-                </span>
-              ))}
+    <>
+      {/* Fixed overlay for butterfly and ladybug */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-10">
+        <div className={`transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+          {/* Blue butterfly with glitter - in empty space, away from text */}
+          <div
+            className="absolute animate-butterfly-hover transition-all duration-1000 hidden md:block"
+            style={{
+              top: "22%",
+              ...(butterflyRight ? { right: "2%" } : { left: "2%" }),
+            }}
+          >
+            <div className="relative">
+              <div className="absolute -inset-6">
+                {[...Array(8)].map((_, i) => (
+                  <span
+                    key={i}
+                    className="absolute animate-pulse text-[10px]"
+                    style={{
+                      top: `${15 + Math.sin(i * 0.8) * 35}%`,
+                      left: `${10 + Math.cos(i * 1.1) * 40 + 30}%`,
+                      animationDelay: `${i * 0.25}s`,
+                      animationDuration: `${1.2 + i * 0.15}s`,
+                      color: `hsl(${200 + i * 8}, 90%, ${70 + (i % 3) * 10}%)`,
+                    }}
+                  >
+                    ✦
+                  </span>
+                ))}
+              </div>
+              <svg width="100" height="80" viewBox="0 0 80 60" className="drop-shadow-lg">
+                <ellipse cx="28" cy="22" rx="20" ry="16" fill="hsl(210, 95%, 55%)" opacity="0.9" className="origin-[40px_30px] animate-flutter-left" />
+                <ellipse cx="30" cy="38" rx="14" ry="10" fill="hsl(200, 90%, 60%)" opacity="0.85" className="origin-[40px_30px] animate-flutter-left" />
+                <ellipse cx="52" cy="22" rx="20" ry="16" fill="hsl(220, 95%, 55%)" opacity="0.9" className="origin-[40px_30px] animate-flutter-right" />
+                <ellipse cx="50" cy="38" rx="14" ry="10" fill="hsl(215, 90%, 60%)" opacity="0.85" className="origin-[40px_30px] animate-flutter-right" />
+                <ellipse cx="26" cy="20" rx="8" ry="6" fill="hsl(195, 100%, 80%)" opacity="0.7" className="origin-[40px_30px] animate-flutter-left" />
+                <ellipse cx="54" cy="20" rx="8" ry="6" fill="hsl(225, 100%, 80%)" opacity="0.7" className="origin-[40px_30px] animate-flutter-right" />
+                <ellipse cx="40" cy="30" rx="3" ry="14" fill="hsl(210, 40%, 25%)" />
+                <circle cx="40" cy="14" r="3.5" fill="hsl(210, 40%, 25%)" />
+                <line x1="40" y1="12" x2="34" y2="4" stroke="hsl(210, 40%, 25%)" strokeWidth="1" />
+                <circle cx="34" cy="4" r="1.5" fill="hsl(210, 90%, 65%)" />
+                <line x1="40" y1="12" x2="46" y2="4" stroke="hsl(210, 40%, 25%)" strokeWidth="1" />
+                <circle cx="46" cy="4" r="1.5" fill="hsl(210, 90%, 65%)" />
+              </svg>
             </div>
-            <svg width="100" height="80" viewBox="0 0 80 60" className="drop-shadow-lg">
-              <ellipse cx="28" cy="22" rx="20" ry="16" fill="hsl(210, 95%, 55%)" opacity="0.9" className="origin-[40px_30px] animate-flutter-left" />
-              <ellipse cx="30" cy="38" rx="14" ry="10" fill="hsl(200, 90%, 60%)" opacity="0.85" className="origin-[40px_30px] animate-flutter-left" />
-              <ellipse cx="52" cy="22" rx="20" ry="16" fill="hsl(220, 95%, 55%)" opacity="0.9" className="origin-[40px_30px] animate-flutter-right" />
-              <ellipse cx="50" cy="38" rx="14" ry="10" fill="hsl(215, 90%, 60%)" opacity="0.85" className="origin-[40px_30px] animate-flutter-right" />
-              <ellipse cx="26" cy="20" rx="8" ry="6" fill="hsl(195, 100%, 80%)" opacity="0.7" className="origin-[40px_30px] animate-flutter-left" />
-              <ellipse cx="54" cy="20" rx="8" ry="6" fill="hsl(225, 100%, 80%)" opacity="0.7" className="origin-[40px_30px] animate-flutter-right" />
-              <ellipse cx="40" cy="30" rx="3" ry="14" fill="hsl(210, 40%, 25%)" />
-              <circle cx="40" cy="14" r="3.5" fill="hsl(210, 40%, 25%)" />
-              <line x1="40" y1="12" x2="34" y2="4" stroke="hsl(210, 40%, 25%)" strokeWidth="1" />
-              <circle cx="34" cy="4" r="1.5" fill="hsl(210, 90%, 65%)" />
-              <line x1="40" y1="12" x2="46" y2="4" stroke="hsl(210, 40%, 25%)" strokeWidth="1" />
-              <circle cx="46" cy="4" r="1.5" fill="hsl(210, 90%, 65%)" />
+          </div>
+
+          {/* Ladybug */}
+          <div
+            className="absolute -z-10 transition-all duration-700"
+            style={{
+              bottom: "4%",
+              left: "5%",
+              animation: scrollDir === "up"
+                ? "ladybug-climb 8s ease-in-out infinite"
+                : "crawl-left-right 16s ease-in-out infinite",
+              transform: scrollDir === "up" ? "rotate(-90deg)" : "none",
+            }}
+          >
+            <svg width="50" height="44" viewBox="0 0 50 44" className="drop-shadow-sm opacity-70">
+              <line x1="14" y1="16" x2="4" y2="10" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[14px_16px] animate-leg-1" />
+              <line x1="12" y1="22" x2="2" y2="22" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[12px_22px] animate-leg-2" />
+              <line x1="14" y1="28" x2="4" y2="34" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[14px_28px] animate-leg-1" />
+              <line x1="36" y1="16" x2="46" y2="10" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[36px_16px] animate-leg-2" />
+              <line x1="38" y1="22" x2="48" y2="22" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[38px_22px] animate-leg-1" />
+              <line x1="36" y1="28" x2="46" y2="34" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[36px_28px] animate-leg-2" />
+              <ellipse cx="25" cy="24" rx="14" ry="16" fill="hsl(0,80%,50%)" />
+              <line x1="25" y1="10" x2="25" y2="40" stroke="hsl(0,0%,15%)" strokeWidth="1.5" />
+              <circle cx="19" cy="18" r="2.5" fill="hsl(0,0%,15%)" />
+              <circle cx="31" cy="18" r="2.5" fill="hsl(0,0%,15%)" />
+              <circle cx="18" cy="28" r="2" fill="hsl(0,0%,15%)" />
+              <circle cx="32" cy="28" r="2" fill="hsl(0,0%,15%)" />
+              <circle cx="25" cy="23" r="1.8" fill="hsl(0,0%,15%)" />
+              <ellipse cx="25" cy="9" rx="8" ry="6" fill="hsl(0,0%,15%)" />
+              <circle cx="22" cy="7" r="1.5" fill="white" />
+              <circle cx="28" cy="7" r="1.5" fill="white" />
+              <circle cx="22.5" cy="7" r="0.7" fill="hsl(0,0%,15%)" />
+              <circle cx="28.5" cy="7" r="0.7" fill="hsl(0,0%,15%)" />
+              <line x1="22" y1="5" x2="16" y2="0" stroke="hsl(0,0%,15%)" strokeWidth="1" />
+              <circle cx="16" cy="0" r="1" fill="hsl(0,0%,15%)" />
+              <line x1="28" y1="5" x2="34" y2="0" stroke="hsl(0,0%,15%)" strokeWidth="1" />
+              <circle cx="34" cy="0" r="1" fill="hsl(0,0%,15%)" />
             </svg>
           </div>
         </div>
-
-        {/* Ladybug - crawls up when scrolling up, sideways when scrolling down */}
-        <div
-          className="absolute -z-10 transition-all duration-700"
-          style={{
-            bottom: "4%",
-            left: "5%",
-            animation: scrollDir === "up"
-              ? "ladybug-climb 8s ease-in-out infinite"
-              : "crawl-left-right 16s ease-in-out infinite",
-            transform: scrollDir === "up" ? "rotate(-90deg)" : "none",
-          }}
-        >
-          <svg width="50" height="44" viewBox="0 0 50 44" className="drop-shadow-sm opacity-70">
-            <line x1="14" y1="16" x2="4" y2="10" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[14px_16px] animate-leg-1" />
-            <line x1="12" y1="22" x2="2" y2="22" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[12px_22px] animate-leg-2" />
-            <line x1="14" y1="28" x2="4" y2="34" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[14px_28px] animate-leg-1" />
-            <line x1="36" y1="16" x2="46" y2="10" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[36px_16px] animate-leg-2" />
-            <line x1="38" y1="22" x2="48" y2="22" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[38px_22px] animate-leg-1" />
-            <line x1="36" y1="28" x2="46" y2="34" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[36px_28px] animate-leg-2" />
-            <ellipse cx="25" cy="24" rx="14" ry="16" fill="hsl(0,80%,50%)" />
-            <line x1="25" y1="10" x2="25" y2="40" stroke="hsl(0,0%,15%)" strokeWidth="1.5" />
-            <circle cx="19" cy="18" r="2.5" fill="hsl(0,0%,15%)" />
-            <circle cx="31" cy="18" r="2.5" fill="hsl(0,0%,15%)" />
-            <circle cx="18" cy="28" r="2" fill="hsl(0,0%,15%)" />
-            <circle cx="32" cy="28" r="2" fill="hsl(0,0%,15%)" />
-            <circle cx="25" cy="23" r="1.8" fill="hsl(0,0%,15%)" />
-            <ellipse cx="25" cy="9" rx="8" ry="6" fill="hsl(0,0%,15%)" />
-            <circle cx="22" cy="7" r="1.5" fill="white" />
-            <circle cx="28" cy="7" r="1.5" fill="white" />
-            <circle cx="22.5" cy="7" r="0.7" fill="hsl(0,0%,15%)" />
-            <circle cx="28.5" cy="7" r="0.7" fill="hsl(0,0%,15%)" />
-            <line x1="22" y1="5" x2="16" y2="0" stroke="hsl(0,0%,15%)" strokeWidth="1" />
-            <circle cx="16" cy="0" r="1" fill="hsl(0,0%,15%)" />
-            <line x1="28" y1="5" x2="34" y2="0" stroke="hsl(0,0%,15%)" strokeWidth="1" />
-            <circle cx="34" cy="0" r="1" fill="hsl(0,0%,15%)" />
-          </svg>
-        </div>
       </div>
 
-      {/* Bee orbiting picture frame every 30s */}
-      {showBee && framePos && <BeeOrbit key={beeKey} framePos={framePos} />}
-    </div>
+      {/* Bee portaled into the picture frame so it scrolls with it */}
+      {showBee && anchorEl && createPortal(
+        <BeeOrbit key={beeKey} />,
+        anchorEl
+      )}
+    </>
   );
 };
 
-const BeeOrbit = ({ framePos }: { framePos: { x: number; y: number; size: number } }) => {
-  const radius = framePos.size / 2 + 20;
-
+const BeeOrbit = () => {
   return (
     <div
-      className="absolute"
+      className="absolute pointer-events-none z-20"
       style={{
-        top: framePos.y - radius - 16,
-        left: framePos.x - radius,
-        width: radius * 2,
-        height: radius * 2,
+        top: "50%",
+        left: "50%",
+        width: "200px",
+        height: "200px",
+        marginTop: "-100px",
+        marginLeft: "-100px",
       }}
     >
       <div
