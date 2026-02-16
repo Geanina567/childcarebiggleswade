@@ -1,17 +1,29 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 const FloatingBugs = () => {
   const [showBee, setShowBee] = useState(false);
+  const [beeKey, setBeeKey] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [framePos, setFramePos] = useState<{ x: number; y: number; size: number } | null>(null);
+  const [butterflyRight, setButterflyRight] = useState(true);
+  const [scrollDir, setScrollDir] = useState<"up" | "down">("down");
+  const lastScrollY = useRef(0);
 
-  // Hide on scroll, reappear after pause
+  // Track scroll direction + hide/show + butterfly side switch
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
     const handleScroll = () => {
+      const currentY = window.scrollY;
+      const dir = currentY < lastScrollY.current ? "up" : "down";
+      setScrollDir(dir);
+      lastScrollY.current = currentY;
+
       setIsVisible(false);
       clearTimeout(timeout);
-      timeout = setTimeout(() => setIsVisible(true), 800);
+      timeout = setTimeout(() => {
+        setIsVisible(true);
+        setButterflyRight((prev) => !prev);
+      }, 800);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
@@ -20,9 +32,9 @@ const FloatingBugs = () => {
     };
   }, []);
 
-  // Find the picture frame and trigger bee
+  // Find picture frame
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    const findFrame = () => {
       const frame = document.getElementById("hero-picture-frame");
       if (frame) {
         const img = frame.querySelector("img");
@@ -35,19 +47,37 @@ const FloatingBugs = () => {
           });
         }
       }
+    };
+    setTimeout(findFrame, 1000);
+  }, []);
+
+  // Bee every 30 seconds
+  useEffect(() => {
+    const triggerBee = () => {
       setShowBee(true);
-    }, 2000);
-    return () => clearTimeout(timeout);
+      setBeeKey((k) => k + 1);
+      setTimeout(() => setShowBee(false), 4000);
+    };
+    const initial = setTimeout(triggerBee, 2000);
+    const interval = setInterval(triggerBee, 30000);
+    return () => {
+      clearTimeout(initial);
+      clearInterval(interval);
+    };
   }, []);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-10">
-      {/* Butterfly & Ladybug - fade on scroll */}
       <div className={`transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-        {/* Bright blue butterfly with glitter - positioned in empty white space */}
-        <div className="absolute animate-butterfly-hover" style={{ top: '15%', right: '4%' }}>
+        {/* Blue butterfly with glitter - switches sides */}
+        <div
+          className="absolute animate-butterfly-hover transition-all duration-1000"
+          style={{
+            top: "15%",
+            ...(butterflyRight ? { right: "4%", left: "auto" } : { left: "4%", right: "auto" }),
+          }}
+        >
           <div className="relative">
-            {/* Glitter particles */}
             <div className="absolute -inset-6">
               {[...Array(8)].map((_, i) => (
                 <span
@@ -66,19 +96,14 @@ const FloatingBugs = () => {
               ))}
             </div>
             <svg width="100" height="80" viewBox="0 0 80 60" className="drop-shadow-lg">
-              {/* Left wings - bright blue */}
               <ellipse cx="28" cy="22" rx="20" ry="16" fill="hsl(210, 95%, 55%)" opacity="0.9" className="origin-[40px_30px] animate-flutter-left" />
               <ellipse cx="30" cy="38" rx="14" ry="10" fill="hsl(200, 90%, 60%)" opacity="0.85" className="origin-[40px_30px] animate-flutter-left" />
-              {/* Right wings - bright blue */}
               <ellipse cx="52" cy="22" rx="20" ry="16" fill="hsl(220, 95%, 55%)" opacity="0.9" className="origin-[40px_30px] animate-flutter-right" />
               <ellipse cx="50" cy="38" rx="14" ry="10" fill="hsl(215, 90%, 60%)" opacity="0.85" className="origin-[40px_30px] animate-flutter-right" />
-              {/* Wing highlights */}
               <ellipse cx="26" cy="20" rx="8" ry="6" fill="hsl(195, 100%, 80%)" opacity="0.7" className="origin-[40px_30px] animate-flutter-left" />
               <ellipse cx="54" cy="20" rx="8" ry="6" fill="hsl(225, 100%, 80%)" opacity="0.7" className="origin-[40px_30px] animate-flutter-right" />
-              {/* Body */}
               <ellipse cx="40" cy="30" rx="3" ry="14" fill="hsl(210, 40%, 25%)" />
               <circle cx="40" cy="14" r="3.5" fill="hsl(210, 40%, 25%)" />
-              {/* Antennae */}
               <line x1="40" y1="12" x2="34" y2="4" stroke="hsl(210, 40%, 25%)" strokeWidth="1" />
               <circle cx="34" cy="4" r="1.5" fill="hsl(210, 90%, 65%)" />
               <line x1="40" y1="12" x2="46" y2="4" stroke="hsl(210, 40%, 25%)" strokeWidth="1" />
@@ -87,8 +112,18 @@ const FloatingBugs = () => {
           </div>
         </div>
 
-        {/* Ladybug - behind text */}
-        <div className="absolute animate-crawl-1 -z-10" style={{ bottom: '4%', left: '5%' }}>
+        {/* Ladybug - crawls up when scrolling up, sideways when scrolling down */}
+        <div
+          className="absolute -z-10 transition-all duration-700"
+          style={{
+            bottom: "4%",
+            left: "5%",
+            animation: scrollDir === "up"
+              ? "ladybug-climb 8s ease-in-out infinite"
+              : "crawl-left-right 16s ease-in-out infinite",
+            transform: scrollDir === "up" ? "rotate(-90deg)" : "none",
+          }}
+        >
           <svg width="50" height="44" viewBox="0 0 50 44" className="drop-shadow-sm opacity-70">
             <line x1="14" y1="16" x2="4" y2="10" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[14px_16px] animate-leg-1" />
             <line x1="12" y1="22" x2="2" y2="22" stroke="hsl(0,0%,15%)" strokeWidth="1.5" strokeLinecap="round" className="origin-[12px_22px] animate-leg-2" />
@@ -116,24 +151,14 @@ const FloatingBugs = () => {
         </div>
       </div>
 
-      {/* Bee orbiting tightly around the picture frame - one time */}
-      {showBee && framePos && (
-        <BeeOrbit framePos={framePos} />
-      )}
+      {/* Bee orbiting picture frame every 30s */}
+      {showBee && framePos && <BeeOrbit key={beeKey} framePos={framePos} />}
     </div>
   );
 };
 
 const BeeOrbit = ({ framePos }: { framePos: { x: number; y: number; size: number } }) => {
-  const [visible, setVisible] = useState(true);
-  const radius = framePos.size / 2 + 20; // Orbit just outside the frame
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setVisible(false), 4000);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  if (!visible) return null;
+  const radius = framePos.size / 2 + 20;
 
   return (
     <div
@@ -150,7 +175,6 @@ const BeeOrbit = ({ framePos }: { framePos: { x: number; y: number; size: number
         style={{ animation: "bee-orbit 4s ease-in-out forwards" }}
       >
         <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          {/* Stardust */}
           <div className="absolute -right-2 top-1/2 -translate-y-1/2 flex gap-1">
             {[...Array(4)].map((_, i) => (
               <span
