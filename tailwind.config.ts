@@ -193,6 +193,12 @@ export default {
           "0%, 100%": { transform: "rotate(0deg)" },
           "50%": { transform: "rotate(-20deg)" },
         },
+        "bee-swipe": {
+          "0%": { transform: "translateX(0)", opacity: "0" },
+          "5%": { opacity: "1" },
+          "90%": { opacity: "1" },
+          "100%": { transform: "translateX(calc(100vw + 160px))", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -219,6 +225,7 @@ export default {
         "butterfly-hover": "butterfly-bob 3s ease-in-out infinite",
         "leg-1": "leg-walk-1 0.4s ease-in-out infinite",
         "leg-2": "leg-walk-2 0.4s ease-in-out infinite",
+        "bee-flyby": "bee-swipe 3s ease-in-out forwards",
       },
     },
   },
