@@ -107,8 +107,8 @@ const FloatingBugs = () => {
         <div
           className="absolute pointer-events-none z-10 animate-butterfly-hover"
           style={{
-            top: "-10px",
-            right: "-20px",
+            top: "-24px",
+            right: "-32px",
           }}
         >
           <video
@@ -116,8 +116,8 @@ const FloatingBugs = () => {
             loop
             muted
             playsInline
-            className="w-12 h-12 object-contain drop-shadow-lg"
-            style={{ mixBlendMode: "multiply", background: "transparent" }}
+            className="w-16 h-16 object-contain"
+            style={{ mixBlendMode: "multiply", filter: "contrast(1.15) saturate(1.3) brightness(1.05)" }}
             src="/videos/butterfly.mp4"
           />
         </div>,
@@ -129,8 +129,8 @@ const FloatingBugs = () => {
         <div
           className="absolute pointer-events-none z-10 animate-butterfly-hover"
           style={{
-            bottom: "-5px",
-            left: "-18px",
+            bottom: "-18px",
+            left: "-30px",
             animationDelay: "1.5s",
           }}
         >
@@ -139,8 +139,8 @@ const FloatingBugs = () => {
             loop
             muted
             playsInline
-            className="w-11 h-11 object-contain drop-shadow-lg"
-            style={{ mixBlendMode: "multiply", background: "transparent" }}
+            className="w-14 h-14 object-contain"
+            style={{ mixBlendMode: "multiply", filter: "contrast(1.15) saturate(1.3) brightness(1.05)" }}
             src="/videos/ladybug-video.mp4"
           />
         </div>,
