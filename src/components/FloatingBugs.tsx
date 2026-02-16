@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const FloatingBugs = () => {
   const [showBee, setShowBee] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [framePos, setFramePos] = useState<{ x: number; y: number; size: number } | null>(null);
 
   // Hide on scroll, reappear after pause
   useEffect(() => {
@@ -19,9 +20,23 @@ const FloatingBugs = () => {
     };
   }, []);
 
-  // Bee one-time animation on load
+  // Find the picture frame and trigger bee
   useEffect(() => {
-    const timeout = setTimeout(() => setShowBee(true), 2000);
+    const timeout = setTimeout(() => {
+      const frame = document.getElementById("hero-picture-frame");
+      if (frame) {
+        const img = frame.querySelector("img");
+        if (img) {
+          const rect = img.getBoundingClientRect();
+          setFramePos({
+            x: rect.left + rect.width / 2,
+            y: rect.top + rect.height / 2 + window.scrollY,
+            size: rect.width,
+          });
+        }
+      }
+      setShowBee(true);
+    }, 2000);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -29,11 +44,11 @@ const FloatingBugs = () => {
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-10">
       {/* Butterfly & Ladybug - fade on scroll */}
       <div className={`transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-        {/* Bright blue butterfly with glitter */}
-        <div className="absolute animate-butterfly-hover" style={{ top: '38%', right: '6%' }}>
+        {/* Bright blue butterfly with glitter - positioned in empty white space */}
+        <div className="absolute animate-butterfly-hover" style={{ top: '15%', right: '4%' }}>
           <div className="relative">
             {/* Glitter particles */}
-            <div className="absolute -inset-4">
+            <div className="absolute -inset-6">
               {[...Array(8)].map((_, i) => (
                 <span
                   key={i}
@@ -101,19 +116,19 @@ const FloatingBugs = () => {
         </div>
       </div>
 
-      {/* Bee orbiting around the round picture frame - one time */}
-      {showBee && (
-        <BeeOrbit />
+      {/* Bee orbiting tightly around the picture frame - one time */}
+      {showBee && framePos && (
+        <BeeOrbit framePos={framePos} />
       )}
     </div>
   );
 };
 
-const BeeOrbit = () => {
+const BeeOrbit = ({ framePos }: { framePos: { x: number; y: number; size: number } }) => {
   const [visible, setVisible] = useState(true);
+  const radius = framePos.size / 2 + 20; // Orbit just outside the frame
 
   useEffect(() => {
-    // Hide after one full orbit (4s)
     const timeout = setTimeout(() => setVisible(false), 4000);
     return () => clearTimeout(timeout);
   }, []);
@@ -124,21 +139,17 @@ const BeeOrbit = () => {
     <div
       className="absolute"
       style={{
-        // Position over the hero illustration area
-        top: 'calc(12% + 0px)',
-        left: 'calc(50% - 80px)',
-        width: '160px',
-        height: '160px',
+        top: framePos.y - radius - 16,
+        left: framePos.x - radius,
+        width: radius * 2,
+        height: radius * 2,
       }}
     >
-      {/* Orbiting bee */}
       <div
         className="absolute w-full h-full"
-        style={{
-          animation: 'bee-orbit 4s ease-in-out forwards',
-        }}
+        style={{ animation: "bee-orbit 4s ease-in-out forwards" }}
       >
-        <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
           {/* Stardust */}
           <div className="absolute -right-2 top-1/2 -translate-y-1/2 flex gap-1">
             {[...Array(4)].map((_, i) => (
@@ -155,7 +166,7 @@ const BeeOrbit = () => {
               </span>
             ))}
           </div>
-          <svg width="32" height="28" viewBox="0 0 48 40" className="drop-shadow-md">
+          <svg width="28" height="24" viewBox="0 0 48 40" className="drop-shadow-md">
             <ellipse cx="18" cy="12" rx="10" ry="7" fill="hsl(200,60%,85%)" opacity="0.7" className="origin-[24px_20px] animate-flutter-left" />
             <ellipse cx="30" cy="12" rx="10" ry="7" fill="hsl(200,60%,85%)" opacity="0.7" className="origin-[24px_20px] animate-flutter-right" />
             <ellipse cx="24" cy="24" rx="10" ry="12" fill="hsl(50,95%,55%)" />

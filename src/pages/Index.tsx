@@ -51,7 +51,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left space-y-6">
               {/* Childminder Illustration */}
-              <div className="flex justify-center lg:justify-start mb-4 animate-fade-in-scale">
+              <div id="hero-picture-frame" className="flex justify-center lg:justify-start mb-4 animate-fade-in-scale relative">
                 <img 
                   src={childminderIllustration}
                   alt="Childminder with happy children"
