@@ -166,18 +166,31 @@ export default {
         },
         "crawl-left-right": {
           "0%": { transform: "translateX(0)" },
-          "50%": { transform: "translateX(120px)" },
+          "50%": { transform: "translateX(100px)" },
           "100%": { transform: "translateX(0)" },
         },
         "crawl-right-left": {
           "0%": { transform: "translateX(0) scaleX(-1)" },
-          "50%": { transform: "translateX(-120px) scaleX(-1)" },
+          "50%": { transform: "translateX(-100px) scaleX(-1)" },
           "100%": { transform: "translateX(0) scaleX(-1)" },
         },
         "crawl-slow": {
           "0%": { transform: "translateX(0)" },
-          "50%": { transform: "translateX(80px)" },
+          "50%": { transform: "translateX(60px)" },
           "100%": { transform: "translateX(0)" },
+        },
+        "butterfly-drift-1": {
+          "0%": { transform: "translate(0, 0) rotate(0deg)" },
+          "25%": { transform: "translate(40px, -20px) rotate(5deg)" },
+          "50%": { transform: "translate(80px, 10px) rotate(-3deg)" },
+          "75%": { transform: "translate(30px, -15px) rotate(4deg)" },
+          "100%": { transform: "translate(0, 0) rotate(0deg)" },
+        },
+        "butterfly-drift-2": {
+          "0%": { transform: "translate(0, 0) rotate(-3deg)" },
+          "33%": { transform: "translate(-50px, -25px) rotate(5deg)" },
+          "66%": { transform: "translate(-20px, 15px) rotate(-4deg)" },
+          "100%": { transform: "translate(0, 0) rotate(-3deg)" },
         },
       },
       animation: {
@@ -202,6 +215,8 @@ export default {
         "crawl-1": "crawl-left-right 12s ease-in-out infinite",
         "crawl-2": "crawl-right-left 15s ease-in-out infinite 2s",
         "crawl-3": "crawl-slow 18s ease-in-out infinite 1s",
+        "butterfly-drift": "butterfly-drift-1 20s ease-in-out infinite",
+        "butterfly-drift-2": "butterfly-drift-2 25s ease-in-out infinite 3s",
       },
     },
   },
