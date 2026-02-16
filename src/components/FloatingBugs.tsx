@@ -61,25 +61,6 @@ const FloatingBugs = () => {
       {/* Fixed overlay for butterfly and ladybug */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-10">
         <div className={`transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          {/* Butterfly video - in white space, away from text */}
-          <div
-            className="absolute animate-butterfly-hover transition-all duration-1000 hidden md:block"
-            style={{
-              top: "18%",
-              ...(butterflyRight ? { right: "3%" } : { left: "3%" }),
-              transform: butterflyRight ? "scaleX(1)" : "scaleX(-1)",
-            }}
-          >
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-16 h-16 object-contain drop-shadow-lg"
-              style={{ mixBlendMode: "multiply" }}
-              src="/videos/butterfly.mp4"
-            />
-          </div>
 
           {/* Ladybug */}
           <div
@@ -120,6 +101,28 @@ const FloatingBugs = () => {
           </div>
         </div>
       </div>
+
+      {/* Butterfly portaled near the picture frame */}
+      {anchorEl && createPortal(
+        <div
+          className="absolute pointer-events-none z-10 animate-butterfly-hover"
+          style={{
+            top: "-10px",
+            right: "-20px",
+          }}
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-12 h-12 object-contain drop-shadow-lg"
+            style={{ mixBlendMode: "multiply" }}
+            src="/videos/butterfly.mp4"
+          />
+        </div>,
+        anchorEl
+      )}
 
       {/* Bee portaled into the picture frame so it scrolls with it */}
       {showBee && anchorEl && createPortal(
