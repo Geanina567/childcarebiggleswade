@@ -102,7 +102,7 @@ const FloatingBugs = () => {
         </div>
       </div>
 
-      {/* Butterfly portaled near the picture frame */}
+      {/* Butterfly portaled near the picture frame - RIGHT side */}
       {anchorEl && createPortal(
         <div
           className="absolute pointer-events-none z-10 animate-butterfly-hover"
@@ -117,8 +117,31 @@ const FloatingBugs = () => {
             muted
             playsInline
             className="w-12 h-12 object-contain drop-shadow-lg"
-            style={{ mixBlendMode: "multiply" }}
+            style={{ mixBlendMode: "multiply", background: "transparent" }}
             src="/videos/butterfly.mp4"
+          />
+        </div>,
+        anchorEl
+      )}
+
+      {/* Ladybug video portaled near the picture frame - LEFT side */}
+      {anchorEl && createPortal(
+        <div
+          className="absolute pointer-events-none z-10 animate-butterfly-hover"
+          style={{
+            bottom: "-5px",
+            left: "-18px",
+            animationDelay: "1.5s",
+          }}
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-11 h-11 object-contain drop-shadow-lg"
+            style={{ mixBlendMode: "multiply", background: "transparent" }}
+            src="/videos/ladybug-video.mp4"
           />
         </div>,
         anchorEl
