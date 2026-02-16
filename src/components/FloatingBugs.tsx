@@ -116,8 +116,13 @@ const FloatingBugs = () => {
             loop
             muted
             playsInline
-            className="w-16 h-16 object-contain"
-            style={{ mixBlendMode: "multiply", filter: "contrast(1.3) saturate(1.3) brightness(1.1)" }}
+            className="w-16 h-16 object-contain rounded-full"
+            style={{
+              mixBlendMode: "multiply",
+              filter: "contrast(1.5) saturate(1.5) brightness(1.2)",
+              WebkitMaskImage: "radial-gradient(circle, black 55%, transparent 80%)",
+              maskImage: "radial-gradient(circle, black 55%, transparent 80%)",
+            }}
             src="/videos/butterfly.mp4"
           />
         </div>,
@@ -139,8 +144,13 @@ const FloatingBugs = () => {
             loop
             muted
             playsInline
-            className="w-14 h-14 object-contain"
-            style={{ mixBlendMode: "multiply", filter: "contrast(1.4) saturate(1.4) brightness(1.15)" }}
+            className="w-14 h-14 object-contain rounded-full"
+            style={{
+              mixBlendMode: "multiply",
+              filter: "contrast(1.5) saturate(1.5) brightness(1.2)",
+              WebkitMaskImage: "radial-gradient(circle, black 55%, transparent 80%)",
+              maskImage: "radial-gradient(circle, black 55%, transparent 80%)",
+            }}
             src="/videos/ladybug-video.mp4"
           />
         </div>,
