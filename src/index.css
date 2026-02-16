@@ -99,3 +99,20 @@
     box-shadow: 0 8px 40px -4px hsl(var(--primary) / 0.25);
   }
 }
+
+@keyframes bee-orbit {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
