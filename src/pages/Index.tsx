@@ -52,11 +52,15 @@ const Index = () => {
             <div className="text-center lg:text-left space-y-6">
               {/* Childminder Illustration */}
               <div id="hero-picture-frame" className="flex justify-center lg:justify-start mb-4 animate-fade-in-scale relative">
-                <img 
-                  src={childminderIllustration}
-                  alt="Childminder with happy children"
-                  className="w-32 h-32 md:w-40 md:h-40 object-contain rounded-full shadow-soft hover:scale-105 transition-transform duration-300"
-                />
+                <div className="relative">
+                  <img 
+                    src={childminderIllustration}
+                    alt="Childminder with happy children"
+                    className="w-32 h-32 md:w-40 md:h-40 object-contain rounded-full shadow-soft hover:scale-105 transition-transform duration-300"
+                  />
+                  {/* Bee orbit container - rendered here so it scrolls with the frame */}
+                  <div id="bee-orbit-anchor" className="absolute inset-0 pointer-events-none" />
+                </div>
               </div>
 
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/15 backdrop-blur-sm rounded-full animate-bounce-soft">
