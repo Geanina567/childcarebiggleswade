@@ -11,13 +11,10 @@ import gallery7 from "@/assets/gallery-7.jpg";
 import gallery8 from "@/assets/gallery-8.jpg";
 import gallery9 from "@/assets/gallery-9.jpg";
 import gallery10 from "@/assets/gallery-10.jpg";
-import gallery11 from "@/assets/gallery-11.jpg";
-import gallery12 from "@/assets/gallery-12.jpg";
-import gallery13 from "@/assets/gallery-13.jpg";
 import gallery14 from "@/assets/gallery-14.jpg";
+import gallery12 from "@/assets/gallery-12.jpg";
 import gallery15 from "@/assets/gallery-15.jpg";
 import gallery16 from "@/assets/gallery-16.jpg";
-import gallery17 from "@/assets/gallery-17.jpg";
 import gallery18 from "@/assets/gallery-18.jpg";
 import gallery19 from "@/assets/gallery-19.jpg";
 import gallery20 from "@/assets/gallery-20.jpg";
@@ -33,17 +30,13 @@ import gallery29 from "@/assets/gallery-29.jpg";
 import gallery30 from "@/assets/gallery-30.jpg";
 import gallery31 from "@/assets/gallery-31.jpg";
 import gallery32 from "@/assets/gallery-32.jpg";
-import gallery33 from "@/assets/gallery-33.jpg";
-import gallery34 from "@/assets/gallery-34.jpg";
 import gallery36 from "@/assets/gallery-36.jpg";
 import gallery37 from "@/assets/gallery-37.jpg";
 import gallery38 from "@/assets/gallery-38.jpg";
 import gallery39 from "@/assets/gallery-39.jpg";
 import gallery40 from "@/assets/gallery-40.jpg";
-import gallery41 from "@/assets/gallery-41.jpg";
 import gallery42 from "@/assets/gallery-42.jpg";
 import gallery43 from "@/assets/gallery-43.jpg";
-import gallery44 from "@/assets/gallery-44.jpg";
 
 type GalleryItem = {
   src: string;
@@ -57,13 +50,10 @@ const galleryItems: GalleryItem[] = [
   { src: gallery8, alt: "Homemade rice pudding", type: "image" },
   { src: gallery9, alt: "Nutritious soup with dumplings", type: "image" },
   { src: gallery10, alt: "Nature exploration tray", type: "image" },
-  { src: gallery11, alt: "Natural materials discovery", type: "image" },
-  { src: gallery12, alt: "Outdoor sensory play", type: "image" },
-  { src: gallery13, alt: "Forest treasures collection", type: "image" },
   { src: gallery14, alt: "Nature walk findings", type: "image" },
+  { src: gallery12, alt: "Outdoor sensory play", type: "image" },
   { src: gallery15, alt: "Magnetic building tiles play", type: "image" },
   { src: gallery16, alt: "Creative construction with tiles", type: "image" },
-  { src: gallery17, alt: "Magnetic tiles building set", type: "image" },
   { src: gallery18, alt: "Outdoor craft activities", type: "image" },
   { src: gallery19, alt: "Story time craft session", type: "image" },
   { src: gallery20, alt: "Creative play tray setup", type: "image" },
@@ -79,17 +69,13 @@ const galleryItems: GalleryItem[] = [
   { src: gallery30, alt: "Creative blow painting art", type: "image" },
   { src: gallery31, alt: "October focus books newsletter", type: "image" },
   { src: gallery32, alt: "Christmas Elf Report", type: "image" },
-  { src: gallery33, alt: "January learning plans", type: "image" },
-  { src: gallery34, alt: "September focus books", type: "image" },
   { src: gallery36, alt: "Flower water sensory play", type: "image" },
   { src: gallery37, alt: "Colourful foam building blocks", type: "image" },
   { src: gallery38, alt: "Creative block construction", type: "image" },
   { src: gallery39, alt: "Farm animals sensory play", type: "image" },
   { src: gallery40, alt: "Farm tray with wooden animals", type: "image" },
-  { src: gallery41, alt: "Farm sensory play overview", type: "image" },
   { src: gallery42, alt: "Magnetic animal board", type: "image" },
   { src: gallery43, alt: "Animal magnets learning activity", type: "image" },
-  { src: gallery44, alt: "Nature treasure collection", type: "image" },
 ];
 
 const GalleryCarousel = () => {
