@@ -102,57 +102,31 @@ const FloatingBugs = () => {
         </div>
       </div>
 
-      {/* Butterfly portaled near the picture frame - RIGHT side */}
+      {/* SVG Butterfly portaled near the picture frame */}
       {anchorEl && createPortal(
         <div
           className="absolute pointer-events-none z-10 animate-butterfly-hover"
           style={{
-            top: "-24px",
-            right: "-32px",
+            top: "-20px",
+            right: "-28px",
           }}
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-16 h-16 object-contain rounded-full"
-            style={{
-              mixBlendMode: "multiply",
-              filter: "contrast(1.5) saturate(1.5) brightness(1.2)",
-              WebkitMaskImage: "radial-gradient(circle, black 55%, transparent 80%)",
-              maskImage: "radial-gradient(circle, black 55%, transparent 80%)",
-            }}
-            src="/videos/butterfly.mp4"
-          />
-        </div>,
-        anchorEl
-      )}
-
-      {/* Ladybug video portaled near the picture frame - LEFT side */}
-      {anchorEl && createPortal(
-        <div
-          className="absolute pointer-events-none z-10 animate-butterfly-hover"
-          style={{
-            bottom: "-18px",
-            left: "-30px",
-            animationDelay: "1.5s",
-          }}
-        >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-14 h-14 object-contain rounded-full"
-            style={{
-              mixBlendMode: "multiply",
-              filter: "contrast(1.5) saturate(1.5) brightness(1.2)",
-              WebkitMaskImage: "radial-gradient(circle, black 55%, transparent 80%)",
-              maskImage: "radial-gradient(circle, black 55%, transparent 80%)",
-            }}
-            src="/videos/ladybug-video.mp4"
-          />
+          <svg width="40" height="36" viewBox="0 0 60 50" className="drop-shadow-md">
+            <ellipse cx="18" cy="18" rx="14" ry="12" fill="hsl(330, 80%, 65%)" opacity="0.85" className="origin-[30px_25px] animate-flutter-left" />
+            <ellipse cx="20" cy="32" rx="10" ry="8" fill="hsl(280, 70%, 70%)" opacity="0.8" className="origin-[30px_25px] animate-flutter-left" />
+            <ellipse cx="42" cy="18" rx="14" ry="12" fill="hsl(330, 80%, 65%)" opacity="0.85" className="origin-[30px_25px] animate-flutter-right" />
+            <ellipse cx="40" cy="32" rx="10" ry="8" fill="hsl(280, 70%, 70%)" opacity="0.8" className="origin-[30px_25px] animate-flutter-right" />
+            <circle cx="18" cy="16" r="4" fill="hsl(45, 90%, 65%)" opacity="0.6" />
+            <circle cx="42" cy="16" r="4" fill="hsl(45, 90%, 65%)" opacity="0.6" />
+            <circle cx="20" cy="31" r="2.5" fill="hsl(200, 70%, 70%)" opacity="0.5" />
+            <circle cx="40" cy="31" r="2.5" fill="hsl(200, 70%, 70%)" opacity="0.5" />
+            <ellipse cx="30" cy="25" rx="2.5" ry="12" fill="hsl(30, 30%, 20%)" />
+            <circle cx="30" cy="12" r="3" fill="hsl(30, 30%, 20%)" />
+            <line x1="28" y1="10" x2="22" y2="3" stroke="hsl(30, 30%, 20%)" strokeWidth="0.8" />
+            <circle cx="22" cy="3" r="1" fill="hsl(30, 30%, 20%)" />
+            <line x1="32" y1="10" x2="38" y2="3" stroke="hsl(30, 30%, 20%)" strokeWidth="0.8" />
+            <circle cx="38" cy="3" r="1" fill="hsl(30, 30%, 20%)" />
+          </svg>
         </div>,
         anchorEl
       )}
