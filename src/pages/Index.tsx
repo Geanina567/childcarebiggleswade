@@ -56,7 +56,7 @@ const Index = () => {
                   <img 
                     src={childminderIllustration}
                     alt="Childminder with happy children"
-                    className="w-32 h-32 md:w-40 md:h-40 object-contain rounded-full shadow-soft hover:scale-105 transition-transform duration-300"
+                    className="w-40 h-40 md:w-48 md:h-48 object-contain rounded-full shadow-soft hover:scale-105 transition-transform duration-300"
                   />
                   {/* Bee orbit container - rendered here so it scrolls with the frame */}
                   <div id="bee-orbit-anchor" className="absolute inset-0 pointer-events-none" />
