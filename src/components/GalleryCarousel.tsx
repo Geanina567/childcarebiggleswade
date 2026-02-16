@@ -17,7 +17,7 @@ import gallery15 from "@/assets/gallery-15.jpg";
 import gallery16 from "@/assets/gallery-16.jpg";
 import gallery18 from "@/assets/gallery-18.jpg";
 import gallery19 from "@/assets/gallery-19.jpg";
-import gallery20 from "@/assets/gallery-20.jpg";
+
 import gallery21 from "@/assets/gallery-21.jpg";
 import gallery22 from "@/assets/gallery-22.jpg";
 import gallery23 from "@/assets/gallery-23.jpg";
@@ -56,7 +56,7 @@ const galleryItems: GalleryItem[] = [
   { src: gallery16, alt: "Creative construction with tiles", type: "image" },
   { src: gallery18, alt: "Outdoor craft activities", type: "image" },
   { src: gallery19, alt: "Story time craft session", type: "image" },
-  { src: gallery20, alt: "Creative play tray setup", type: "image" },
+  
   { src: gallery21, alt: "Outdoor learning space", type: "image" },
   { src: gallery22, alt: "Story book reading activity", type: "image" },
   { src: gallery23, alt: "Interactive story crafts", type: "image" },
