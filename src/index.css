@@ -116,3 +116,9 @@
     opacity: 0;
   }
 }
+
+@keyframes ladybug-climb {
+  0% { transform: rotate(-90deg) translateX(0); }
+  50% { transform: rotate(-90deg) translateX(-60px); }
+  100% { transform: rotate(-90deg) translateX(0); }
+}
