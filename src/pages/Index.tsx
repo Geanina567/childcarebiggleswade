@@ -10,6 +10,7 @@ import FloatingBugs from "@/components/FloatingBugs";
 
 import heroImage from "@/assets/hero-nursery.png";
 import childminderIllustration from "@/assets/childminder-illustration.png";
+import biggleswadeTown from "@/assets/biggleswade-town.jpeg";
 
 const Index = () => {
   const features = [
@@ -244,8 +245,13 @@ const Index = () => {
       </section>
 
       {/* About Biggleswade Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-accent/50 to-secondary/30">
-        <div className="container mx-auto max-w-6xl">
+      <section className="relative py-16 px-4 overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img src={biggleswadeTown} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
+        </div>
+        <div className="relative container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
