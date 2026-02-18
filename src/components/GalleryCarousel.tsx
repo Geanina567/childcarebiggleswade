@@ -37,6 +37,7 @@ import gallery39 from "@/assets/gallery-39.jpg";
 import gallery40 from "@/assets/gallery-40.jpg";
 import gallery42 from "@/assets/gallery-42.jpg";
 import gallery43 from "@/assets/gallery-43.jpg";
+import gallery45 from "@/assets/gallery-45.jpg";
 
 type GalleryItem = {
   src: string;
@@ -76,6 +77,7 @@ const galleryItems: GalleryItem[] = [
   { src: gallery40, alt: "Farm tray with wooden animals", type: "image" },
   { src: gallery42, alt: "Magnetic animal board", type: "image" },
   { src: gallery43, alt: "Animal magnets learning activity", type: "image" },
+  { src: gallery45, alt: "Ema's Little People colourful sign", type: "image" },
 ];
 
 const GalleryCarousel = () => {
