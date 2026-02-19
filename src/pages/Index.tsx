@@ -90,11 +90,6 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Pricing Badge - Subtle */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/80 backdrop-blur-sm rounded-full animate-fade-in-up" style={{ animationDelay: '0.35s' }}>
-                <PoundSterling className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-foreground">Starting at £7.50/hour · Subject to availability</span>
-              </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                 <a href="https://wa.me/447733876089" target="_blank" rel="noopener noreferrer">
@@ -198,15 +193,6 @@ const Index = () => {
               <p className="text-sm text-secondary-foreground mt-4 font-medium bg-secondary/50 rounded-full px-3 py-1 inline-block">Schedule can be flexible</p>
             </div>
 
-            <div className="group bg-gradient-to-br from-accent/50 via-secondary/30 to-primary/10 rounded-3xl p-8 text-center hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
-              <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <PoundSterling className="w-8 h-8 text-primary group-hover:animate-wiggle" />
-              </div>
-              <h3 className="text-xl font-display font-bold text-foreground mb-2">Hourly Rate</h3>
-              <p className="text-3xl font-bold text-primary mb-2">Starting at £7.50</p>
-              <p className="text-muted-foreground">Subject to availability</p>
-              <p className="text-sm text-accent-foreground mt-4 font-medium bg-accent/50 rounded-full px-3 py-1 inline-block">Contact for availability</p>
-            </div>
 
             {/* Funded Places Banner */}
             <div className="md:col-span-2 bg-gradient-to-r from-primary/10 via-secondary/30 to-accent/20 rounded-2xl p-6 text-center">
