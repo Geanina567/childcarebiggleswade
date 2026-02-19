@@ -62,7 +62,7 @@ const About = () => {
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
             A fully accredited and regulated childminder providing high-quality care 
-            for children aged 0-3 in Biggleswade. Dedicated to giving every child 
+            for children aged 0-8 in Biggleswade. Dedicated to giving every child 
             the strongest possible start in life.
           </p>
         </div>
