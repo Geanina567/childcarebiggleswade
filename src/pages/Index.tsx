@@ -16,8 +16,8 @@ const Index = () => {
   const features = [
     {
       icon: Baby,
-      title: "Ages 0-3",
-      description: "Specialized care for babies and toddlers"
+      title: "Ages 0-8",
+      description: "Specialized care for babies, toddlers and children"
     },
     {
       icon: Shield,
@@ -74,7 +74,7 @@ const Index = () => {
               </h1>
               
               <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                A nurturing home-from-home childminding service for children aged 0-3 in 
+                A nurturing home-from-home childminding service for children aged 0-8 in 
                 Biggleswade. Where every child is cherished, cared for, and encouraged to flourish.
               </p>
 
@@ -139,8 +139,8 @@ const Index = () => {
                     <Baby className="w-6 h-6 text-primary animate-wiggle" />
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">Ages 0-3</div>
-                    <div className="text-sm text-muted-foreground">Babies & Toddlers</div>
+                    <div className="font-bold text-foreground">Ages 0-8</div>
+                    <div className="text-sm text-muted-foreground">Babies, Toddlers & Children</div>
                   </div>
                 </div>
               </div>

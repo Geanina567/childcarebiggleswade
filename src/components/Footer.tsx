@@ -18,7 +18,7 @@ const Footer = () => {
               <span className="font-display font-bold text-xl">Little People</span>
             </div>
             <p className="text-background/70 text-sm leading-relaxed mb-4">
-              Providing exceptional care and early education for children aged 0-3 
+              Providing exceptional care and early education for children aged 0-8 
               in the heart of Biggleswade. Fully accredited and regulated.
             </p>
             <div className="flex items-center gap-2 text-background/70">
